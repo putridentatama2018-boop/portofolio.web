@@ -253,9 +253,9 @@
   }
 
   // ==========================================================================
-  // 7. Contact Form Live Character Counter & Validation
+  // 7. Contact Form Live Character Counter & Validation & Quick Topics
   // ==========================================================================
-  const messageTextarea = $('#pesan') || $('#isi');
+  const messageTextarea = $('#isi') || $('#pesan');
   const charCounter = $('#hitung');
   const charProgress = $('#charProgress');
 
@@ -271,6 +271,40 @@
 
     messageTextarea.addEventListener('input', updateCharCount);
     updateCharCount();
+
+    // Quick Topic Chips
+    $$('.quick-topic-chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        $$('.quick-topic-chip').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const defaultMsg = btn.dataset.msg || '';
+        if (defaultMsg) {
+          messageTextarea.value = defaultMsg;
+          updateCharCount();
+          messageTextarea.focus();
+        }
+      });
+    });
+  }
+
+  // Copy Email Button
+  const copyEmailBtn = $('#copyEmailBtn');
+  if (copyEmailBtn) {
+    copyEmailBtn.addEventListener('click', () => {
+      const emailToCopy = copyEmailBtn.dataset.email || 'putri.devcreative@gmail.com';
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(emailToCopy).then(() => {
+          const originalText = copyEmailBtn.innerHTML;
+          copyEmailBtn.innerHTML = '<span>✅ Tersalin!</span>';
+          showToast('Alamat email berhasil disalin ke clipboard!', 'success');
+          setTimeout(() => {
+            copyEmailBtn.innerHTML = originalText;
+          }, 2500);
+        }).catch(() => {
+          showToast('Gagal menyalin email.', 'error');
+        });
+      }
+    });
   }
 
   // ==========================================================================
