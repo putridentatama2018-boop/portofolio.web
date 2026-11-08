@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kontak &amp; Kolaborasi | Putri Denta Tama - Frontend Developer &amp; UI/UX</title>
+  <meta name="description" content="Portofolio resmi Putri Denta Tama (vectorpix.dev): Frontend Developer &amp; UI/UX Designer. Turning Ideas Into Digital Reality.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="/portofolio.web/assets/css/style.css?v=1794157024" rel="stylesheet">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('vp_theme') || 'light';
+      document.documentElement.dataset.theme = savedTheme;
+    })();
+  </script>
+</head>
+<body class="site-body theme-pixelcraft">
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-bar" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Ambient Glowing Blobs -->
+  <div class="ambient-glow-layer" aria-hidden="true">
+    <div class="glow-orb orb-top-left"></div>
+    <div class="glow-orb orb-top-right"></div>
+    <div class="glow-orb orb-mid-right"></div>
+  </div>
+
+  <!-- Floating Island Header (Matching Reference PixelCraft Mockup) -->
+  <header class="header-floating-island">
+    <div class="island-nav-container">
+      <!-- Left: Logo & Brand Name -->
+      <a class="pixel-brand-logo" href="/portofolio.web/" title="vectorpix.dev">
+        <div class="pixel-logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 4L12 21L12 13.2L7.8 4H3Z" fill="url(#vpGradLeft)"/>
+            <path d="M21 4L12 21L12 13.2L16.2 4H21Z" fill="url(#vpGradRight)"/>
+            <rect x="10.5" y="5" width="3" height="3" rx="0.75" fill="#ec4899"/>
+            <defs>
+              <linearGradient id="vpGradLeft" x1="3" y1="4" x2="12" y2="21" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#b674fc"/>
+                <stop offset="1" stop-color="#ec4899"/>
+              </linearGradient>
+              <linearGradient id="vpGradRight" x1="21" y1="4" x2="12" y2="21" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#ec4899"/>
+                <stop offset="1" stop-color="#d946ef"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="pixel-brand-title">vectorpix<span class="brand-tld">.dev</span></span>
+      </a>
+
+      <!-- Center: Navigation Menu -->
+      <nav class="pixel-nav-links" id="navLinks">
+        <a href="/portofolio.web/#beranda" class="pixel-nav-item ">Beranda</a>
+        <a href="/portofolio.web/#certificates" class="pixel-nav-item">Sertifikasi</a>
+        <a href="/portofolio.web/proyek/" class="pixel-nav-item ">Proyek</a>
+        <a href="/portofolio.web/kontak/" class="pixel-nav-item active">Kontak</a>
+      </nav>
+
+      <!-- Right: Action Icons (Dark/Light Theme Toggle) -->
+      <div class="pixel-nav-actions">
+        <button class="pixel-icon-btn" id="themeBtn" aria-label="Ganti mode terang/gelap" title="Ganti mode terang/gelap">
+          <span class="btn-icon-svg" id="themeBtnIcon">🌙</span>
+        </button>
+        <button class="pixel-mobile-toggle" id="navToggle" aria-label="Buka navigasi" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content View -->
+  <main id="mainContent" class="main-pixelcraft"><section class="sec page-kontak-sec">
+  <!-- Ambient Background Glow Effect -->
+  <div class="kontak-ambient-glow" aria-hidden="true">
+    <div class="kontak-glow-orb kontak-glow-1"></div>
+    <div class="kontak-glow-orb kontak-glow-2"></div>
+  </div>
+
+  <!-- Page Header -->
+  <div class="sec-header-ethereal kontak-hero-header">
+    <div class="kicker-pill">
+      <span class="kicker-pulse-wrap">
+        <span class="kicker-ring"></span>
+        <span class="kicker-dot"></span>
+      </span>
+      <span>MARI BERKOLABORASI</span>
+    </div>
+    <h1 class="page-main-heading">Hubungi Saya &amp; <span class="gradient-purple-text">Mulai Diskusi Proyek</span></h1>
+    <p class="page-main-sub">
+      Punya ide proyek, kebutuhan rekayasa perangkat lunak, sistem UI/UX, produksi fotografi, atau videografi sinematik? Saya siap mendengarkan dan mewujudkannya bersama Anda.
+    </p>
+
+    <div class="header-highlights-row">
+      <div class="highlight-mini-pill">
+        <span class="status-indicator-live"></span>
+        <span><strong>Status:</strong> Terbuka untuk Proyek Baru &amp; Konsultasi</span>
+      </div>
+      <div class="highlight-mini-pill">
+        <span class="mini-pill-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </span>
+        <span>Respon Cepat <strong>&le; 24 Jam Kerja</strong></span>
+      </div>
+      <div class="highlight-mini-pill">
+        <span class="mini-pill-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </span>
+        <span>Surakarta, Jawa Tengah / Nganjuk (WIB / GMT+7)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Layout Grid -->
+  <div class="contact-layout-grid">
+    <!-- Left Column: Direct Info & Communication Channels -->
+    <div class="contact-info-card">
+      <div class="contact-card-header">
+        <div class="card-kicker-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span>SALURAN RESMI</span>
+        </div>
+        <h2 class="contact-card-title">Terhubung Secara Langsung</h2>
+        <p class="contact-card-desc">
+          Silakan hubungi saya melalui kanal email langsung di bawah ini atau gunakan formulir interaktif di samping.
+        </p>
+      </div>
+
+      <div class="contact-meta-list">
+        <!-- Email Item -->
+        <div class="contact-channel-box">
+          <div class="channel-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="16" rx="3"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L1 7"></path>
+            </svg>
+          </div>
+          <div class="channel-content">
+            <span class="channel-label">Email Resmi</span>
+            <div class="mail-action-group">
+              <a class="contact-mail-link" href="mailto:putridentatama@gmail.com" id="emailAddressLink">putridentatama@gmail.com</a>
+              <button type="button" class="btn-copy-chip" id="copyEmailBtn" data-email="putridentatama@gmail.com" title="Salin alamat email">
+                <svg class="copy-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span class="copy-label">Salin</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Location Item -->
+        <div class="contact-channel-box">
+          <div class="channel-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <div class="channel-content">
+            <span class="channel-label">Lokasi &amp; Domisili</span>
+            <span class="channel-val">Surakarta, Jawa Tengah / Nganjuk</span>
+            <span class="channel-subtext">WIB (UTC+7) &bull; Terbuka Remote, Hybrid, &amp; On-site</span>
+          </div>
+        </div>
+
+        <!-- Working Hours Item -->
+        <div class="contact-channel-box">
+          <div class="channel-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <div class="channel-content">
+            <span class="channel-label">Jam Aktif Diskusi</span>
+            <span class="channel-val">Senin – Sabtu, 08:00 – 19:00 WIB</span>
+            <span class="channel-subtext">Respon prioritas saat jam kerja aktif</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Action: WhatsApp Direct Link -->
+      <a href="https://wa.me/6281234567890?text=Halo%20Putri,%20saya%20tertarik%20untuk%20berdiskusi%20tentang%20proyek..." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-direct" title="Hubungi langsung via WhatsApp">
+        <div class="wa-left-wrap">
+          <svg class="wa-icon-svg" viewBox="0 0 24 24">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.05-1.07l-.29-.17-3.12.82.83-3.04-.19-.3a8.19 8.19 0 0 1-1.26-4.47c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.78.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+          </svg>
+          <span>Mulai Chat Cepat via WhatsApp</span>
+        </div>
+        <span class="wa-arrow">&rarr;</span>
+      </a>
+
+      <!-- Quick Collaboration Perks Tip Box -->
+      <div class="collaboration-perks-box">
+        <div class="perks-icon-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+            <circle cx="12" cy="12" r="5"></circle>
+          </svg>
+        </div>
+        <div class="perks-text">
+          <strong class="perks-title">Tips Memulai Kolaborasi</strong>
+          <ul class="perks-tips-list">
+            <li>Sertakan ringkasan ide atau kebutuhan proyek Anda.</li>
+            <li>Cantumkan estimasi target waktu penyelesaian (deadline).</li>
+            <li>Sebutkan preferensi teknologi atau referensi gaya visual.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Interactive Contact Form -->
+    <div class="contact-form-card">
+      <div class="form-card-header">
+        <h2 class="form-title">Kirim Pesan Langsung</h2>
+        <p class="form-subtitle">Pilih topik cepat di bawah untuk mempermudah detail pesan Anda:</p>
+      </div>
+
+      <!-- Quick Topic Chips -->
+      <div class="quick-topics-wrapper" id="quickTopicChips">
+        <button type="button" class="quick-topic-chip" data-topic="Software Engineering" data-msg="Halo Putri, saya tertarik untuk mendiskusikan pembuatan aplikasi web/mobile dengan spesifikasi...">
+          <span>💻 Software Engineering</span>
+        </button>
+        <button type="button" class="quick-topic-chip" data-topic="Desain UI/UX" data-msg="Halo Putri, kami membutuhkan perancangan antarmuka sistem / UI UX design untuk...">
+          <span>🎨 Desain UI/UX</span>
+        </button>
+        <button type="button" class="quick-topic-chip" data-topic="Fotografi" data-msg="Halo Putri, saya ingin mengatur sesi pemotretan profesional / fotografi komersial untuk...">
+          <span>📷 Fotografi</span>
+        </button>
+        <button type="button" class="quick-topic-chip" data-topic="Videografi" data-msg="Halo Putri, kami berencana memproduksi video profil sinematik / motion video untuk...">
+          <span>🎬 Videografi</span>
+        </button>
+      </div>
+
+      <!-- Form Submission -->
+      <form class="contact-form-element" method="post" action="/portofolio.web/kontak//kirim" novalidate id="contactForm">
+        <!-- Anti-spam Honeypot (Guaranteed Invisible) -->
+        <div class="hp" aria-hidden="true" style="display:none !important; position:absolute; left:-9999px; width:0; height:0; opacity:0; pointer-events:none;">
+          <label>Website <input name="website" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <!-- Nama Input -->
+        <div class="form-group-item">
+          <label for="inputNama" class="form-label">
+            <span>Nama Lengkap <span class="req-star">*</span></span>
+          </label>
+          <div class="input-field-wrap ">
+            <span class="field-icon">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </span>
+            <input id="inputNama" name="nama" type="text" placeholder="Contoh: Budi Santoso" value="" class="form-text-input" autocomplete="name" required>
+          </div>
+                  </div>
+
+        <!-- Email Input -->
+        <div class="form-group-item">
+          <label for="inputEmail" class="form-label">
+            <span>Alamat Email <span class="req-star">*</span></span>
+          </label>
+          <div class="input-field-wrap ">
+            <span class="field-icon">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="3"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L1 7"></path>
+              </svg>
+            </span>
+            <input id="inputEmail" type="email" name="email" placeholder="nama@email.com" value="" class="form-text-input" autocomplete="email" required>
+          </div>
+                  </div>
+
+        <!-- Message Input -->
+        <div class="form-group-item">
+          <label for="isi" class="form-label">
+            <span>Detail Pesan atau Rencana Proyek <span class="req-star">*</span></span>
+          </label>
+          <div class="input-field-wrap textarea-wrap ">
+            <textarea name="isi" id="isi" rows="5" maxlength="1000" placeholder="Ceritakan gambaran proyek, target waktu, atau ekspektasi yang Anda inginkan..." class="form-textarea-input" required></textarea>
+          </div>
+          
+          <div class="textarea-counter-row">
+            <div class="char-bar-track">
+              <div class="char-bar-fill" id="charProgress"></div>
+            </div>
+            <span class="char-count-text"><span id="hitung">0</span>/1000 Karakter</span>
+          </div>
+
+                  </div>
+
+        <!-- Submit Button -->
+        <button class="btn-submit-pill" type="submit" id="submitBtn">
+          <span id="submitBtnText">Kirim Pesan Sekarang</span>
+          <span class="submit-arrow-circle" id="submitBtnIcon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Self-contained Interactive Script for Contact Page -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // 1. Copy Email Feature
+  const copyBtn = document.getElementById('copyEmailBtn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async function () {
+      const email = this.getAttribute('data-email');
+      const copyLabel = this.querySelector('.copy-label');
+      
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(email);
+        } else {
+          const tempInput = document.createElement('textarea');
+          tempInput.value = email;
+          tempInput.style.position = 'fixed';
+          tempInput.style.opacity = '0';
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          document.execCommand('copy');
+          document.body.removeChild(tempInput);
+        }
+
+        // Visual Feedback
+        copyBtn.classList.add('copied');
+        if (copyLabel) copyLabel.textContent = 'Tersalin! ✓';
+
+        // Trigger Toast Feedback if global helper exists
+        if (typeof showToast === 'function') {
+          showToast('Alamat email berhasil disalin ke clipboard!', 'success');
+        }
+
+        setTimeout(() => {
+          copyBtn.classList.remove('copied');
+          if (copyLabel) copyLabel.textContent = 'Salin';
+        }, 2500);
+      } catch (err) {
+        console.error('Failed to copy: ', err);
+      }
+    });
+  }
+
+  // 2. Quick Topic Chips Interaction
+  const topicChips = document.querySelectorAll('.quick-topic-chip');
+  const messageArea = document.getElementById('isi');
+
+  topicChips.forEach(chip => {
+    chip.addEventListener('click', function () {
+      // Toggle active state
+      topicChips.forEach(c => c.classList.remove('active'));
+      this.classList.add('active');
+
+      const templateMsg = this.getAttribute('data-msg');
+      if (messageArea && templateMsg) {
+        // If empty or user hasn't written a lot, set the template directly
+        if (!messageArea.value.trim() || messageArea.value.startsWith('Halo Putri')) {
+          messageArea.value = templateMsg;
+        } else {
+          // Prepend topic context if user already entered notes
+          const topic = this.getAttribute('data-topic');
+          messageArea.value = `[Topik: ${topic}]\n` + messageArea.value;
+        }
+        messageArea.focus();
+        messageArea.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+    });
+  });
+
+  // 3. Dynamic Textarea Character Counter & Progress Bar
+  const textareaEl = document.getElementById('isi');
+  const counterNum = document.getElementById('hitung');
+  const progressBar = document.getElementById('charProgress');
+  const counterText = document.querySelector('.char-count-text');
+
+  function updateCharCount() {
+    if (!textareaEl || !counterNum || !progressBar) return;
+    const len = textareaEl.value.length;
+    counterNum.textContent = len;
+    
+    const pct = Math.min((len / 1000) * 100, 100);
+    progressBar.style.width = pct + '%';
+
+    if (len >= 900) {
+      progressBar.classList.add('warn');
+      if (counterText) counterText.classList.add('warn');
+    } else {
+      progressBar.classList.remove('warn');
+      if (counterText) counterText.classList.remove('warn');
+    }
+  }
+
+  if (textareaEl) {
+    textareaEl.addEventListener('input', updateCharCount);
+    // Initial check on page load (e.g. if old input exists)
+    updateCharCount();
+  }
+
+  // 4. Form Submission Loading State
+  const contactForm = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const submitBtnText = document.getElementById('submitBtnText');
+
+  if (contactForm && submitBtn) {
+    contactForm.addEventListener('submit', function (e) {
+      // Basic check
+      if (contactForm.checkValidity()) {
+        submitBtn.classList.add('is-submitting');
+        if (submitBtnText) submitBtnText.textContent = 'Mengirim Pesan...';
+      }
+    });
+  }
+});
+</script>
+</main>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas" title="Kembali ke atas">
+    <span class="back-to-top-arrow">&uarr;</span>
+  </button>
+
+  <!-- Clean Minimalist Footer -->
+  <footer class="pixel-footer">
+    <div class="pixel-footer-inner">
+      <div class="pixel-footer-left">
+        <a class="pixel-brand-logo small" href="/portofolio.web/" title="vectorpix.dev">
+          <div class="pixel-logo-icon mini">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 4L12 21L12 13.2L7.8 4H3Z" fill="url(#vpGradLeftFoot)"/>
+              <path d="M21 4L12 21L12 13.2L16.2 4H21Z" fill="url(#vpGradRightFoot)"/>
+              <rect x="10.5" y="5" width="3" height="3" rx="0.75" fill="#ec4899"/>
+              <defs>
+                <linearGradient id="vpGradLeftFoot" x1="3" y1="4" x2="12" y2="21" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#b674fc"/>
+                  <stop offset="1" stop-color="#ec4899"/>
+                </linearGradient>
+                <linearGradient id="vpGradRightFoot" x1="21" y1="4" x2="12" y2="21" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#ec4899"/>
+                  <stop offset="1" stop-color="#d946ef"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="pixel-brand-title">vectorpix<span class="brand-tld">.dev</span></span>
+        </a>
+        <p class="pixel-footer-sub">Mewujudkan ide menjadi kenyataan digital yang modern, responsif, dan fungsional.</p>
+      </div>
+
+      <div class="pixel-footer-right">
+        <p class="copyright-text">&copy; 2026 <strong>Putri Denta Tama</strong> (vectorpix.dev). Seluruh hak cipta dilindungi.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/portofolio.web/assets/js/app.js?v=1794157024"></script>
+</body>
+</html>

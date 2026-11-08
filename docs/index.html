@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beranda | Putri Denta Tama - Frontend Developer &amp; UI/UX</title>
+  <meta name="description" content="Portofolio resmi Putri Denta Tama (vectorpix.dev): Frontend Developer &amp; UI/UX Designer. Turning Ideas Into Digital Reality.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="/portofolio.web/assets/css/style.css?v=1794157024" rel="stylesheet">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('vp_theme') || 'light';
+      document.documentElement.dataset.theme = savedTheme;
+    })();
+  </script>
+</head>
+<body class="site-body theme-pixelcraft">
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-bar" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Ambient Glowing Blobs -->
+  <div class="ambient-glow-layer" aria-hidden="true">
+    <div class="glow-orb orb-top-left"></div>
+    <div class="glow-orb orb-top-right"></div>
+    <div class="glow-orb orb-mid-right"></div>
+  </div>
+
+  <!-- Floating Island Header (Matching Reference PixelCraft Mockup) -->
+  <header class="header-floating-island">
+    <div class="island-nav-container">
+      <!-- Left: Logo & Brand Name -->
+      <a class="pixel-brand-logo" href="/portofolio.web/" title="vectorpix.dev">
+        <div class="pixel-logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 4L12 21L12 13.2L7.8 4H3Z" fill="url(#vpGradLeft)"/>
+            <path d="M21 4L12 21L12 13.2L16.2 4H21Z" fill="url(#vpGradRight)"/>
+            <rect x="10.5" y="5" width="3" height="3" rx="0.75" fill="#ec4899"/>
+            <defs>
+              <linearGradient id="vpGradLeft" x1="3" y1="4" x2="12" y2="21" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#b674fc"/>
+                <stop offset="1" stop-color="#ec4899"/>
+              </linearGradient>
+              <linearGradient id="vpGradRight" x1="21" y1="4" x2="12" y2="21" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#ec4899"/>
+                <stop offset="1" stop-color="#d946ef"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="pixel-brand-title">vectorpix<span class="brand-tld">.dev</span></span>
+      </a>
+
+      <!-- Center: Navigation Menu -->
+      <nav class="pixel-nav-links" id="navLinks">
+        <a href="/portofolio.web/#beranda" class="pixel-nav-item active">Beranda</a>
+        <a href="/portofolio.web/#certificates" class="pixel-nav-item">Sertifikasi</a>
+        <a href="/portofolio.web/proyek/" class="pixel-nav-item ">Proyek</a>
+        <a href="/portofolio.web/kontak/" class="pixel-nav-item ">Kontak</a>
+      </nav>
+
+      <!-- Right: Action Icons (Dark/Light Theme Toggle) -->
+      <div class="pixel-nav-actions">
+        <button class="pixel-icon-btn" id="themeBtn" aria-label="Ganti mode terang/gelap" title="Ganti mode terang/gelap">
+          <span class="btn-icon-svg" id="themeBtnIcon">🌙</span>
+        </button>
+        <button class="pixel-mobile-toggle" id="navToggle" aria-label="Buka navigasi" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content View -->
+  <main id="mainContent" class="main-pixelcraft">
+<section class="pixel-hero-section" id="beranda">
+  <div class="pixel-container">
+    <div class="pixel-hero-grid">
+      <!-- Left Column: Intro, Socials, Headline, Bio, Buttons -->
+      <div class="pixel-hero-content">
+        <!-- Social Icons Row (LinkedIn & GitHub) -->
+        <div class="pixel-socials-row">
+          <a href="https://www.linkedin.com/in/putridentatama857" target="_blank" rel="noopener noreferrer" class="pixel-social-icon" title="LinkedIn - Putri Dentatama" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="https://github.com/putridentatama2018-boop/" target="_blank" rel="noopener noreferrer" class="pixel-social-icon" title="GitHub - putridentatama2018-boop" aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+        </div>
+
+        <h1 class="pixel-hero-title">
+          Halo, Saya<br>
+          <span class="gradient-purple-text">Putri Denta Tama</span>
+        </h1>
+
+        <div class="pixel-hero-role">Frontend Developer &amp; Desainer UI/UX</div>
+
+        <p class="pixel-hero-bio">
+          Saya merancang dan membangun pengalaman web yang modern, responsif, dan ramah pengguna. Berdedikasi pada kode yang bersih, desain yang memikat, dan mewujudkan ide menjadi produk nyata.
+        </p>
+
+        <!-- 2 Action Buttons -->
+        <div class="pixel-cta-actions">
+          <a href="/portofolio.web/assets/docs/CV.pdf" download="CV.pdf" target="_blank" class="btn-gradient-purple" title="Unduh CV (PDF)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span>Unduh CV</span>
+          </a>
+          <a href="/portofolio.web/kontak/" class="btn-glass-outline" title="Hubungi Saya">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L1 7"/>
+            </svg>
+            <span>Hubungi Saya</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: 3D Code Laptop Visual -->
+      <div class="pixel-hero-visual">
+        <div class="character-stage-wrapper">
+          <div class="character-ambient-glow" aria-hidden="true"></div>
+          <div class="character-aura-circle" aria-hidden="true"></div>
+          <div class="character-ground-shadow" aria-hidden="true"></div>
+          <img src="/portofolio.web/assets/images/pixel-hero-laptop.png?v=1794155102" alt="3D Code Laptop Illustration" class="character-main-img">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="pixel-section" id="about">
+  <div class="pixel-container">
+    <div class="about-pixel-grid">
+      <!-- Left Column: Aesthetic Boxed Photo Frame (Pas Foto) -->
+      <div class="about-avatar-col">
+        <div class="about-photo-wrapper">
+          <!-- Outer decorative dashed outline ring inspired by the mockup -->
+          <div class="about-photo-accent-frame" aria-hidden="true"></div>
+          <!-- Ambient backlight glow -->
+          <div class="about-photo-glow" aria-hidden="true"></div>
+
+          <!-- Main Aesthetic Boxed Card -->
+          <div class="about-photo-card">
+            <!-- Photo Canvas with Pas Foto -->
+            <div class="about-photo-canvas">
+              <img src="/portofolio.web/assets/images/pas-foto-putri.jpg?v=1794153853" alt="Putri Denta Tama Pas Foto" class="about-pasfoto-img">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Title, Narrative, Stats, Let's Talk -->
+      <div class="about-content-col">
+        <span class="pixel-sec-kicker">TENTANG SAYA</span>
+        <h2 class="pixel-sec-title">
+          Mengubah Ide Menjadi<br>
+          <span class="gradient-purple-text">Kenyataan Digital</span>
+        </h2>
+
+        <p class="pixel-sec-desc">
+          Saya adalah seorang frontend developer yang berfokus membangun website yang indah dan fungsional. Senang memecahkan masalah, mempelajari teknologi baru, serta menciptakan pengalaman pengguna yang mulus dan berdampak nyata.
+        </p>
+
+        <!-- 3 Stat Capsules -->
+        <div class="pixel-stats-row">
+          <div class="pixel-stat-capsule">
+            <strong class="stat-number">2+</strong>
+            <span class="stat-label">Tahun Pengalaman</span>
+          </div>
+          <div class="pixel-stat-capsule">
+            <strong class="stat-number">20+</strong>
+            <span class="stat-label">Proyek Selesai</span>
+          </div>
+          <div class="pixel-stat-capsule">
+            <strong class="stat-number">100%</strong>
+            <span class="stat-label">Dedikasi Kerja</span>
+          </div>
+        </div>
+
+        <div class="about-action-wrap">
+          <a href="/portofolio.web/kontak/" class="btn-gradient-cyan-purple">
+            <span>Mulai Diskusi</span>
+            <span class="btn-arrow">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================================
+     3. ACHIEVEMENTS SECTION (CERTIFICATIONS & BADGES)
+     ========================================================================= -->
+<section class="pixel-section" id="certificates">
+  <div class="pixel-container">
+    <div class="certifications-pixel-grid">
+      <!-- Left Column: Cert Cards from CV -->
+      <div class="certifications-list-col">
+        <span class="pixel-sec-kicker">PENCAPAIAN</span>
+        <h2 class="pixel-sec-title">
+          Sertifikasi &amp; <span class="gradient-purple-text">Kompetensi</span>
+        </h2>
+
+        <div class="cert-cards-stack">
+          <!-- Cert 1: BNSP Fotografer Junior -->
+          <div class="cert-glass-card">
+            <div class="cert-icon-box purple-tint">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                <circle cx="12" cy="13" r="4"/>
+              </svg>
+            </div>
+            <div class="cert-meta-info">
+              <h3 class="cert-name">Fotografer Junior (Junior Photography)</h3>
+              <span class="cert-issuer">BNSP | LSP SMKN 1 Gesi</span>
+            </div>
+            <div class="cert-status-group">
+              <span class="cert-date">📅 Apr 2025</span>
+              <span class="cert-verified-badge">Terverifikasi BNSP</span>
+            </div>
+          </div>
+
+          <!-- Cert 2: PKL CV Mahesa Sublim -->
+          <div class="cert-glass-card">
+            <div class="cert-icon-box cyan-tint">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="m4.93 4.93 4.24 4.24"/>
+                <path d="m14.83 9.17 4.24-4.24"/>
+                <path d="m14.83 14.83 4.24 4.24"/>
+                <path d="m9.17 14.83-4.24 4.24"/>
+                <circle cx="12" cy="12" r="4"/>
+              </svg>
+            </div>
+            <div class="cert-meta-info">
+              <h3 class="cert-name">Praktik Kerja Lapangan (Desain Grafis &amp; Sublimasi)</h3>
+              <span class="cert-issuer">CV Mahesa Sublim</span>
+            </div>
+            <div class="cert-status-group">
+              <span class="cert-date">📅 Jul &ndash; Sep 2024</span>
+              <span class="cert-verified-badge">Terverifikasi</span>
+            </div>
+          </div>
+
+          <!-- Cert 3: PKL Donjuan Photography -->
+          <div class="cert-glass-card">
+            <div class="cert-icon-box blue-tint">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <polyline points="21 15 16 10 5 21"/>
+              </svg>
+            </div>
+            <div class="cert-meta-info">
+              <h3 class="cert-name">Praktik Kerja Lapangan (Fotografi &amp; Retouching)</h3>
+              <span class="cert-issuer">Donjuan Photography</span>
+            </div>
+            <div class="cert-status-group">
+              <span class="cert-date">📅 Jan &ndash; Mar 2024</span>
+              <span class="cert-verified-badge">Terverifikasi</span>
+            </div>
+          </div>
+
+          <!-- Cert 4: Pramuka Garuda -->
+          <div class="cert-glass-card">
+            <div class="cert-icon-box purple-tint">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <div class="cert-meta-info">
+              <h3 class="cert-name">Penghargaan Pramuka Garuda</h3>
+              <span class="cert-issuer">Tingkat Penegak SMK Negeri 1 Gesi</span>
+            </div>
+            <div class="cert-status-group">
+              <span class="cert-date">📅 Apr 2025</span>
+              <span class="cert-verified-badge">Penghargaan Resmi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: 3D Character in Graduation Cap holding Diploma -->
+      <div class="graduate-avatar-col">
+        <div class="graduate-stage-wrapper">
+          <div class="graduate-halo-glow" aria-hidden="true"></div>
+          <img src="/portofolio.web/assets/images/pixel-graduate-character-girl.png?v=1794155586" alt="Karakter Lulusan 3D" class="graduate-img">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="pixel-section" id="skills">
+  <div class="pixel-container">
+    <div class="section-center-head">
+      <span class="pixel-sec-kicker">KEAHLIAN &amp; SPESIALISASI</span>
+      <h2 class="pixel-sec-title">
+        Keahlian &amp; <span class="gradient-purple-text">Teknologi</span>
+      </h2>
+    </div>
+
+    <!-- 8 Glass Skill Cards Grid (2 cols x 4 rows) -->
+    <div class="pixel-skills-grid">
+      <!-- 1. VS Code (90%) -->
+      <div class="skill-glass-card">
+        <div class="skill-icon-wrap vscode-sq">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#007ACC">
+            <path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"/>
+          </svg>
+        </div>
+        <div class="skill-details-wrap">
+          <div class="skill-label-row">
+            <span class="skill-name">VS Code</span>
+            <span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-progress-track">
+            <div class="skill-progress-fill" style="width: 90%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-glass-card">
+        <div class="skill-icon-wrap github-sq">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </div>
+        <div class="skill-details-wrap">
+          <div class="skill-label-row">
+            <span class="skill-name">GitHub</span>
+            <span class="skill-pct">80%</span>
+          </div>
+          <div class="skill-progress-track">
+            <div class="skill-progress-fill" style="width: 80%;"></div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="skill-glass-card">
+        <div class="skill-icon-wrap figma-sq">
+          <svg width="20" height="24" viewBox="0 0 38 57" fill="none">
+            <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
+            <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/>
+            <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/>
+            <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"/>
+            <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"/>
+          </svg>
+        </div>
+        <div class="skill-details-wrap">
+          <div class="skill-label-row">
+            <span class="skill-name">Figma</span>
+            <span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-progress-track">
+            <div class="skill-progress-fill" style="width: 90%;"></div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="skill-glass-card">
+        <div class="skill-icon-wrap coreldraw-sq">
+          <span class="badge-letter" style="color: #10b981; font-weight: 900; letter-spacing: -1px; font-size: 1.1rem;">CD</span>
+        </div>
+        <div class="skill-details-wrap">
+          <div class="skill-label-row">
+            <span class="skill-name">CorelDraw</span>
+            <span class="skill-pct">93%</span>
+          </div>
+          <div class="skill-progress-track">
+            <div class="skill-progress-fill" style="width: 93%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-glass-card">
+        <div class="skill-icon-wrap photoshop-sq">
+          <span class="badge-letter" style="color: #31a8ff; font-weight: 900; font-size: 1.1rem;">Ps</span>
+        </div>
+        <div class="skill-details-wrap">
+          <div class="skill-label-row">
+            <span class="skill-name">Adobe Photoshop</span>
+            <span class="skill-pct">95%</span>
+          </div>
+          <div class="skill-progress-track">
+            <div class="skill-progress-fill" style="width: 95%;"></div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="skill-glass-card">
+        <div class="skill-icon-wrap phpmyadmin-sq">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L3 17H21L12 2Z" fill="#F39C12"/>
+            <path d="M12 7L6 17H18L12 7Z" fill="#3498DB"/>
+          </svg>
+        </div>
+        <div class="skill-details-wrap">
+          <div class="skill-label-row">
+            <span class="skill-name">phpMyAdmin</span>
+            <span class="skill-pct">85%</span>
+          </div>
+          <div class="skill-progress-track">
+            <div class="skill-progress-fill" style="width: 85%;"></div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="skill-glass-card">
+        <div class="skill-icon-wrap flutter-sq">
+          <svg width="22" height="22" viewBox="0 0 24 24">
+            <path d="M14.314 0L2.3 12 6 15.7 21.684 0h-7.37z" fill="#54C5F8"/>
+            <path d="M14.314 11.215L8.71 16.82l3.7 3.7 5.604-5.605 5.604 5.605L24 20.12l-9.686-8.905z" fill="#02569B"/>
+          </svg>
+        </div>
+        <div class="skill-details-wrap">
+          <div class="skill-label-row">
+            <span class="skill-name">Flutter</span>
+            <span class="skill-pct">80%</span>
+          </div>
+          <div class="skill-progress-track">
+            <div class="skill-progress-fill" style="width: 80%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. CapCut (87%) -->
+      <div class="skill-glass-card">
+        <div class="skill-icon-wrap capcut-sq">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 6h6l4 12h6"/>
+            <path d="M20 6h-6L10 18H4"/>
+          </svg>
+        </div>
+        <div class="skill-details-wrap">
+          <div class="skill-label-row">
+            <span class="skill-name">CapCut</span>
+            <span class="skill-pct">87%</span>
+          </div>
+          <div class="skill-progress-track">
+            <div class="skill-progress-fill" style="width: 87%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+</main>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas" title="Kembali ke atas">
+    <span class="back-to-top-arrow">&uarr;</span>
+  </button>
+
+  <!-- Clean Minimalist Footer -->
+  <footer class="pixel-footer">
+    <div class="pixel-footer-inner">
+      <div class="pixel-footer-left">
+        <a class="pixel-brand-logo small" href="/portofolio.web/" title="vectorpix.dev">
+          <div class="pixel-logo-icon mini">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 4L12 21L12 13.2L7.8 4H3Z" fill="url(#vpGradLeftFoot)"/>
+              <path d="M21 4L12 21L12 13.2L16.2 4H21Z" fill="url(#vpGradRightFoot)"/>
+              <rect x="10.5" y="5" width="3" height="3" rx="0.75" fill="#ec4899"/>
+              <defs>
+                <linearGradient id="vpGradLeftFoot" x1="3" y1="4" x2="12" y2="21" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#b674fc"/>
+                  <stop offset="1" stop-color="#ec4899"/>
+                </linearGradient>
+                <linearGradient id="vpGradRightFoot" x1="21" y1="4" x2="12" y2="21" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#ec4899"/>
+                  <stop offset="1" stop-color="#d946ef"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="pixel-brand-title">vectorpix<span class="brand-tld">.dev</span></span>
+        </a>
+        <p class="pixel-footer-sub">Mewujudkan ide menjadi kenyataan digital yang modern, responsif, dan fungsional.</p>
+      </div>
+
+      <div class="pixel-footer-right">
+        <p class="copyright-text">&copy; 2026 <strong>Putri Denta Tama</strong> (vectorpix.dev). Seluruh hak cipta dilindungi.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/portofolio.web/assets/js/app.js?v=1794157024"></script>
+</body>
+</html>

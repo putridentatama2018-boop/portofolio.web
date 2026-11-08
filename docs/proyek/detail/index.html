@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mengalihkan ke Detail Proyek...</title>
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const slug = urlParams.get('slug');
+  if (slug) {
+    window.location.replace(slug + '/');
+  } else {
+    window.location.replace('../');
+  }
+</script>
+</head>
+<body>
+<p>Mengalihkan ke detail proyek...</p>
+</body>
+</html>

@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Karya &amp; Proyek | Putri Denta Tama - Frontend Developer &amp; UI/UX</title>
+  <meta name="description" content="Portofolio resmi Putri Denta Tama (vectorpix.dev): Frontend Developer &amp; UI/UX Designer. Turning Ideas Into Digital Reality.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="/portofolio.web/assets/css/style.css?v=1794157024" rel="stylesheet">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('vp_theme') || 'light';
+      document.documentElement.dataset.theme = savedTheme;
+    })();
+  </script>
+</head>
+<body class="site-body theme-pixelcraft">
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-bar" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Ambient Glowing Blobs -->
+  <div class="ambient-glow-layer" aria-hidden="true">
+    <div class="glow-orb orb-top-left"></div>
+    <div class="glow-orb orb-top-right"></div>
+    <div class="glow-orb orb-mid-right"></div>
+  </div>
+
+  <!-- Floating Island Header (Matching Reference PixelCraft Mockup) -->
+  <header class="header-floating-island">
+    <div class="island-nav-container">
+      <!-- Left: Logo & Brand Name -->
+      <a class="pixel-brand-logo" href="/portofolio.web/" title="vectorpix.dev">
+        <div class="pixel-logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 4L12 21L12 13.2L7.8 4H3Z" fill="url(#vpGradLeft)"/>
+            <path d="M21 4L12 21L12 13.2L16.2 4H21Z" fill="url(#vpGradRight)"/>
+            <rect x="10.5" y="5" width="3" height="3" rx="0.75" fill="#ec4899"/>
+            <defs>
+              <linearGradient id="vpGradLeft" x1="3" y1="4" x2="12" y2="21" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#b674fc"/>
+                <stop offset="1" stop-color="#ec4899"/>
+              </linearGradient>
+              <linearGradient id="vpGradRight" x1="21" y1="4" x2="12" y2="21" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#ec4899"/>
+                <stop offset="1" stop-color="#d946ef"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span class="pixel-brand-title">vectorpix<span class="brand-tld">.dev</span></span>
+      </a>
+
+      <!-- Center: Navigation Menu -->
+      <nav class="pixel-nav-links" id="navLinks">
+        <a href="/portofolio.web/#beranda" class="pixel-nav-item ">Beranda</a>
+        <a href="/portofolio.web/#certificates" class="pixel-nav-item">Sertifikasi</a>
+        <a href="/portofolio.web/proyek/" class="pixel-nav-item active">Proyek</a>
+        <a href="/portofolio.web/kontak/" class="pixel-nav-item ">Kontak</a>
+      </nav>
+
+      <!-- Right: Action Icons (Dark/Light Theme Toggle) -->
+      <div class="pixel-nav-actions">
+        <button class="pixel-icon-btn" id="themeBtn" aria-label="Ganti mode terang/gelap" title="Ganti mode terang/gelap">
+          <span class="btn-icon-svg" id="themeBtnIcon">🌙</span>
+        </button>
+        <button class="pixel-mobile-toggle" id="navToggle" aria-label="Buka navigasi" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content View -->
+  <main id="mainContent" class="main-pixelcraft"><section class="sec page-proyek-sec">
+  <!-- Page Header -->
+  <div class="sec-header-ethereal proyek-hero-header">
+    <div class="kicker-pill">
+      <span class="kicker-dot"></span>
+      <span>KATALOG KARYA &amp; PORTOFOLIO</span>
+    </div>
+    <h1 class="page-main-heading">Karya &amp; Eksplorasi Proyek</h1>
+    <p class="page-main-sub">
+      Koleksi karya terpilih yang memadukan rekayasa perangkat lunak berkinerja tinggi, sistem desain UI/UX intuitif, fotografi editorial, dan videografi sinematik.
+    </p>
+
+    <div class="header-highlights-row">
+      <div class="highlight-mini-pill">
+        <span class="mini-pill-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </span>
+        <span><b>9</b> Karya Terkurasi</span>
+      </div>
+      <div class="highlight-mini-pill">
+        <span class="mini-pill-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+        </span>
+        <span><b>4</b> Bidang Spesialisasi</span>
+      </div>
+      <div class="highlight-mini-pill">
+        <span class="mini-pill-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </span>
+        <span>Studi Kasus Lengkap</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Projects Grid -->
+  <div class="projects-grid" id="grid">
+                <a class="card project-card kat-theme-software-engineering" href="/portofolio.web/proyek/detail/aplikasi-pemesanan-cafe-mobile"
+         data-kat="Software Engineering" 
+         data-cari="aplikasi pemesanan cafe mobile (flutter &amp; mysql) flutter, dart, mysql, figma, rest api aplikasi pemesanan cafe berbasis mobile menggunakan flutter dengan integrasi database mysql. software engineering">
+        
+        <!-- Card Top Visual Cover -->
+        <div class="project-card-cover">
+          <div class="cover-mesh-bg"></div>
+          <div class="cover-watermark-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polyline points="16 18 22 12 16 6"/>
+  <polyline points="8 6 2 12 8 18"/>
+  <line x1="14" y1="4" x2="10" y2="20"/>
+</svg></div>
+          
+          <div class="cover-top-badges">
+            <span class="badge-category">
+              <span class="badge-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polyline points="16 18 22 12 16 6"/>
+  <polyline points="8 6 2 12 8 18"/>
+  <line x1="14" y1="4" x2="10" y2="20"/>
+</svg></span>
+              <span class="badge-text">Software Engineering</span>
+            </span>
+                          <span class="badge-featured">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>Unggulan</span>
+              </span>
+                      </div>
+
+          <div class="cover-bottom-info">
+            <span class="badge-year">2026</span>
+          </div>
+        </div>
+
+        <!-- Card Body -->
+        <div class="project-card-body">
+          <h3 class="project-card-title">Aplikasi Pemesanan Cafe Mobile (Flutter &amp; MySQL)</h3>
+          <p class="project-card-desc">Aplikasi pemesanan cafe berbasis mobile menggunakan Flutter dengan integrasi database MySQL.</p>
+          
+          <!-- Tech Tags Cloud -->
+          <div class="project-card-tech">
+            <div class="tech-tags-cloud">
+                              <span class="tech-tag-pill">Flutter</span>
+                              <span class="tech-tag-pill">Dart</span>
+                              <span class="tech-tag-pill">MySQL</span>
+                                            <span class="tech-tag-pill tech-tag-more">+2</span>
+                          </div>
+          </div>
+
+          <!-- Card Footer CTA -->
+          <div class="project-card-footer">
+            <span class="footer-cta-text">Lihat Detail Studi Kasus</span>
+            <span class="footer-cta-arrow">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+                <a class="card project-card kat-theme-software-engineering" href="/portofolio.web/proyek/detail/aplikasi-kedai-santy"
+         data-kat="Software Engineering" 
+         data-cari="aplikasi kedai santy - analisis sistem &amp; web ui/ux system analysis, use case, flowchart, erd, figma, ui/ux design analisis kebutuhan pengguna, perancangan use case, erd, wireframe, dan desain website interaktif. software engineering">
+        
+        <!-- Card Top Visual Cover -->
+        <div class="project-card-cover">
+          <div class="cover-mesh-bg"></div>
+          <div class="cover-watermark-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polyline points="16 18 22 12 16 6"/>
+  <polyline points="8 6 2 12 8 18"/>
+  <line x1="14" y1="4" x2="10" y2="20"/>
+</svg></div>
+          
+          <div class="cover-top-badges">
+            <span class="badge-category">
+              <span class="badge-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polyline points="16 18 22 12 16 6"/>
+  <polyline points="8 6 2 12 8 18"/>
+  <line x1="14" y1="4" x2="10" y2="20"/>
+</svg></span>
+              <span class="badge-text">Software Engineering</span>
+            </span>
+                          <span class="badge-featured">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>Unggulan</span>
+              </span>
+                      </div>
+
+          <div class="cover-bottom-info">
+            <span class="badge-year">2025</span>
+          </div>
+        </div>
+
+        <!-- Card Body -->
+        <div class="project-card-body">
+          <h3 class="project-card-title">Aplikasi Kedai Santy - Analisis Sistem &amp; Web UI/UX</h3>
+          <p class="project-card-desc">Analisis kebutuhan pengguna, perancangan use case, ERD, wireframe, dan desain website interaktif.</p>
+          
+          <!-- Tech Tags Cloud -->
+          <div class="project-card-tech">
+            <div class="tech-tags-cloud">
+                              <span class="tech-tag-pill">System Analysis</span>
+                              <span class="tech-tag-pill">Use Case</span>
+                              <span class="tech-tag-pill">Flowchart</span>
+                                            <span class="tech-tag-pill tech-tag-more">+3</span>
+                          </div>
+          </div>
+
+          <!-- Card Footer CTA -->
+          <div class="project-card-footer">
+            <span class="footer-cta-text">Lihat Detail Studi Kasus</span>
+            <span class="footer-cta-arrow">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+                <a class="card project-card kat-theme-videografi" href="/portofolio.web/proyek/detail/film-pendek-ngono-yo-ngono"
+         data-kat="Videografi" 
+         data-cari="produksi film pendek – &quot;ngono yo ngono ning yo ojo ngono&quot; clapperboard, production file management, video workflow, adobe premiere pro clapper dan manajemen arsip file produksi terstruktur dalam film pendek naratif. videografi">
+        
+        <!-- Card Top Visual Cover -->
+        <div class="project-card-cover">
+          <div class="cover-mesh-bg"></div>
+          <div class="cover-watermark-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polygon points="23 7 16 12 23 17 23 7"/>
+  <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+</svg></div>
+          
+          <div class="cover-top-badges">
+            <span class="badge-category">
+              <span class="badge-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polygon points="23 7 16 12 23 17 23 7"/>
+  <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+</svg></span>
+              <span class="badge-text">Videografi</span>
+            </span>
+                          <span class="badge-featured">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>Unggulan</span>
+              </span>
+                      </div>
+
+          <div class="cover-bottom-info">
+            <span class="badge-year">2024</span>
+          </div>
+        </div>
+
+        <!-- Card Body -->
+        <div class="project-card-body">
+          <h3 class="project-card-title">Produksi Film Pendek – &quot;Ngono Yo Ngono Ning Yo Ojo Ngono&quot;</h3>
+          <p class="project-card-desc">Clapper dan manajemen arsip file produksi terstruktur dalam film pendek naratif.</p>
+          
+          <!-- Tech Tags Cloud -->
+          <div class="project-card-tech">
+            <div class="tech-tags-cloud">
+                              <span class="tech-tag-pill">Clapperboard</span>
+                              <span class="tech-tag-pill">Production File Management</span>
+                              <span class="tech-tag-pill">Video Workflow</span>
+                                            <span class="tech-tag-pill tech-tag-more">+1</span>
+                          </div>
+          </div>
+
+          <!-- Card Footer CTA -->
+          <div class="project-card-footer">
+            <span class="footer-cta-text">Lihat Detail Studi Kasus</span>
+            <span class="footer-cta-arrow">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+                <a class="card project-card kat-theme-fotografi" href="/portofolio.web/proyek/detail/fotografi-komersial-donjuan"
+         data-kat="Fotografi" 
+         data-cari="fotografi komersial &amp; retouching studio (donjuan photography) adobe lightroom, adobe photoshop, dslr/mirrorless, studio lighting, retouching persiapan sesi pemotretan, tata cahaya studio, editing raw, dan retouching produk. fotografi">
+        
+        <!-- Card Top Visual Cover -->
+        <div class="project-card-cover">
+          <div class="cover-mesh-bg"></div>
+          <div class="cover-watermark-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10"/>
+  <line x1="14.31" y1="8" x2="20.05" y2="17.94"/>
+  <line x1="9.69" y1="8" x2="21.17" y2="8"/>
+  <line x1="7.38" y1="12" x2="13.12" y2="2.06"/>
+  <line x1="9.69" y1="16" x2="3.95" y2="6.06"/>
+  <line x1="14.31" y1="16" x2="2.83" y2="16"/>
+  <line x1="16.62" y1="12" x2="10.88" y2="21.94"/>
+</svg></div>
+          
+          <div class="cover-top-badges">
+            <span class="badge-category">
+              <span class="badge-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10"/>
+  <line x1="14.31" y1="8" x2="20.05" y2="17.94"/>
+  <line x1="9.69" y1="8" x2="21.17" y2="8"/>
+  <line x1="7.38" y1="12" x2="13.12" y2="2.06"/>
+  <line x1="9.69" y1="16" x2="3.95" y2="6.06"/>
+  <line x1="14.31" y1="16" x2="2.83" y2="16"/>
+  <line x1="16.62" y1="12" x2="10.88" y2="21.94"/>
+</svg></span>
+              <span class="badge-text">Fotografi</span>
+            </span>
+                          <span class="badge-featured">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>Unggulan</span>
+              </span>
+                      </div>
+
+          <div class="cover-bottom-info">
+            <span class="badge-year">2024</span>
+          </div>
+        </div>
+
+        <!-- Card Body -->
+        <div class="project-card-body">
+          <h3 class="project-card-title">Fotografi Komersial &amp; Retouching Studio (Donjuan Photography)</h3>
+          <p class="project-card-desc">Persiapan sesi pemotretan, tata cahaya studio, editing RAW, dan retouching produk.</p>
+          
+          <!-- Tech Tags Cloud -->
+          <div class="project-card-tech">
+            <div class="tech-tags-cloud">
+                              <span class="tech-tag-pill">Adobe Lightroom</span>
+                              <span class="tech-tag-pill">Adobe Photoshop</span>
+                              <span class="tech-tag-pill">DSLR/Mirrorless</span>
+                                            <span class="tech-tag-pill tech-tag-more">+2</span>
+                          </div>
+          </div>
+
+          <!-- Card Footer CTA -->
+          <div class="project-card-footer">
+            <span class="footer-cta-text">Lihat Detail Studi Kasus</span>
+            <span class="footer-cta-arrow">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+                <a class="card project-card kat-theme-desain-grafis" href="/portofolio.web/proyek/detail/desain-jersey-mahesa-sublim"
+         data-kat="Desain Grafis" 
+         data-cari="desain jersey olahraga &amp; mockup 3d (cv mahesa sublim) coreldraw, adobe photoshop, 3d jersey mockup, sublimation print perancangan jersey olahraga kustom (futsal, sepak bola, basket) dan mockup 3d katalog. desain grafis">
+        
+        <!-- Card Top Visual Cover -->
+        <div class="project-card-cover">
+          <div class="cover-mesh-bg"></div>
+          <div class="cover-watermark-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+  <polyline points="2 17 12 22 22 17"/>
+  <polyline points="2 12 12 17 22 12"/>
+</svg></div>
+          
+          <div class="cover-top-badges">
+            <span class="badge-category">
+              <span class="badge-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+  <polyline points="2 17 12 22 22 17"/>
+  <polyline points="2 12 12 17 22 12"/>
+</svg></span>
+              <span class="badge-text">Desain Grafis</span>
+            </span>
+                          <span class="badge-featured">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>Unggulan</span>
+              </span>
+                      </div>
+
+          <div class="cover-bottom-info">
+            <span class="badge-year">2024</span>
+          </div>
+        </div>
+
+        <!-- Card Body -->
+        <div class="project-card-body">
+          <h3 class="project-card-title">Desain Jersey Olahraga &amp; Mockup 3D (CV Mahesa Sublim)</h3>
+          <p class="project-card-desc">Perancangan jersey olahraga kustom (futsal, sepak bola, basket) dan mockup 3D katalog.</p>
+          
+          <!-- Tech Tags Cloud -->
+          <div class="project-card-tech">
+            <div class="tech-tags-cloud">
+                              <span class="tech-tag-pill">CorelDRAW</span>
+                              <span class="tech-tag-pill">Adobe Photoshop</span>
+                              <span class="tech-tag-pill">3D Jersey Mockup</span>
+                                            <span class="tech-tag-pill tech-tag-more">+1</span>
+                          </div>
+          </div>
+
+          <!-- Card Footer CTA -->
+          <div class="project-card-footer">
+            <span class="footer-cta-text">Lihat Detail Studi Kasus</span>
+            <span class="footer-cta-arrow">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+                <a class="card project-card kat-theme-fotografi" href="/portofolio.web/proyek/detail/dokumentasi-epim-2026"
+         data-kat="Fotografi" 
+         data-cari="dokumentasi fotografi &amp; guidebook epim 2026 (hmjti) event photography, photojournalism, adobe lightroom, guidebook layout dokumentasi resmi kompetisi ilmiah mahasiswa &amp; sma/smk se-indonesia dan penyusunan guidebook. fotografi">
+        
+        <!-- Card Top Visual Cover -->
+        <div class="project-card-cover">
+          <div class="cover-mesh-bg"></div>
+          <div class="cover-watermark-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10"/>
+  <line x1="14.31" y1="8" x2="20.05" y2="17.94"/>
+  <line x1="9.69" y1="8" x2="21.17" y2="8"/>
+  <line x1="7.38" y1="12" x2="13.12" y2="2.06"/>
+  <line x1="9.69" y1="16" x2="3.95" y2="6.06"/>
+  <line x1="14.31" y1="16" x2="2.83" y2="16"/>
+  <line x1="16.62" y1="12" x2="10.88" y2="21.94"/>
+</svg></div>
+          
+          <div class="cover-top-badges">
+            <span class="badge-category">
+              <span class="badge-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10"/>
+  <line x1="14.31" y1="8" x2="20.05" y2="17.94"/>
+  <line x1="9.69" y1="8" x2="21.17" y2="8"/>
+  <line x1="7.38" y1="12" x2="13.12" y2="2.06"/>
+  <line x1="9.69" y1="16" x2="3.95" y2="6.06"/>
+  <line x1="14.31" y1="16" x2="2.83" y2="16"/>
+  <line x1="16.62" y1="12" x2="10.88" y2="21.94"/>
+</svg></span>
+              <span class="badge-text">Fotografi</span>
+            </span>
+                      </div>
+
+          <div class="cover-bottom-info">
+            <span class="badge-year">2026</span>
+          </div>
+        </div>
+
+        <!-- Card Body -->
+        <div class="project-card-body">
+          <h3 class="project-card-title">Dokumentasi Fotografi &amp; Guidebook EPIM 2026 (HMJTI)</h3>
+          <p class="project-card-desc">Dokumentasi resmi kompetisi ilmiah mahasiswa &amp; SMA/SMK se-Indonesia dan penyusunan Guidebook.</p>
+          
+          <!-- Tech Tags Cloud -->
+          <div class="project-card-tech">
+            <div class="tech-tags-cloud">
+                              <span class="tech-tag-pill">Event Photography</span>
+                              <span class="tech-tag-pill">Photojournalism</span>
+                              <span class="tech-tag-pill">Adobe Lightroom</span>
+                                            <span class="tech-tag-pill tech-tag-more">+1</span>
+                          </div>
+          </div>
+
+          <!-- Card Footer CTA -->
+          <div class="project-card-footer">
+            <span class="footer-cta-text">Lihat Detail Studi Kasus</span>
+            <span class="footer-cta-arrow">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+                <a class="card project-card kat-theme-videografi" href="/portofolio.web/proyek/detail/live-streaming-skincare-sragen"
+         data-kat="Videografi" 
+         data-cari="live streaming &amp; visual marketing (host sragen) live streaming, product presentation, public speaking, creative video edukasi produk skincare, demonstrasi langsung, dan interaksi penjualan via live streaming. videografi">
+        
+        <!-- Card Top Visual Cover -->
+        <div class="project-card-cover">
+          <div class="cover-mesh-bg"></div>
+          <div class="cover-watermark-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polygon points="23 7 16 12 23 17 23 7"/>
+  <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+</svg></div>
+          
+          <div class="cover-top-badges">
+            <span class="badge-category">
+              <span class="badge-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polygon points="23 7 16 12 23 17 23 7"/>
+  <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+</svg></span>
+              <span class="badge-text">Videografi</span>
+            </span>
+                      </div>
+
+          <div class="cover-bottom-info">
+            <span class="badge-year">2025</span>
+          </div>
+        </div>
+
+        <!-- Card Body -->
+        <div class="project-card-body">
+          <h3 class="project-card-title">Live Streaming &amp; Visual Marketing (Host Sragen)</h3>
+          <p class="project-card-desc">Edukasi produk skincare, demonstrasi langsung, dan interaksi penjualan via live streaming.</p>
+          
+          <!-- Tech Tags Cloud -->
+          <div class="project-card-tech">
+            <div class="tech-tags-cloud">
+                              <span class="tech-tag-pill">Live Streaming</span>
+                              <span class="tech-tag-pill">Product Presentation</span>
+                              <span class="tech-tag-pill">Public Speaking</span>
+                                            <span class="tech-tag-pill tech-tag-more">+1</span>
+                          </div>
+          </div>
+
+          <!-- Card Footer CTA -->
+          <div class="project-card-footer">
+            <span class="footer-cta-text">Lihat Detail Studi Kasus</span>
+            <span class="footer-cta-arrow">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+                <a class="card project-card kat-theme-fotografi" href="/portofolio.web/proyek/detail/freelance-photo-editing-creative"
+         data-kat="Fotografi" 
+         data-cari="foto produk &amp; komposisi retouching (creative team) adobe photoshop, adobe lightroom, color grading, photo manipulation kurasi foto, komposisi visual produk, manipulasi gambar, dan color grading profesional. fotografi">
+        
+        <!-- Card Top Visual Cover -->
+        <div class="project-card-cover">
+          <div class="cover-mesh-bg"></div>
+          <div class="cover-watermark-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10"/>
+  <line x1="14.31" y1="8" x2="20.05" y2="17.94"/>
+  <line x1="9.69" y1="8" x2="21.17" y2="8"/>
+  <line x1="7.38" y1="12" x2="13.12" y2="2.06"/>
+  <line x1="9.69" y1="16" x2="3.95" y2="6.06"/>
+  <line x1="14.31" y1="16" x2="2.83" y2="16"/>
+  <line x1="16.62" y1="12" x2="10.88" y2="21.94"/>
+</svg></div>
+          
+          <div class="cover-top-badges">
+            <span class="badge-category">
+              <span class="badge-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10"/>
+  <line x1="14.31" y1="8" x2="20.05" y2="17.94"/>
+  <line x1="9.69" y1="8" x2="21.17" y2="8"/>
+  <line x1="7.38" y1="12" x2="13.12" y2="2.06"/>
+  <line x1="9.69" y1="16" x2="3.95" y2="6.06"/>
+  <line x1="14.31" y1="16" x2="2.83" y2="16"/>
+  <line x1="16.62" y1="12" x2="10.88" y2="21.94"/>
+</svg></span>
+              <span class="badge-text">Fotografi</span>
+            </span>
+                      </div>
+
+          <div class="cover-bottom-info">
+            <span class="badge-year">2025</span>
+          </div>
+        </div>
+
+        <!-- Card Body -->
+        <div class="project-card-body">
+          <h3 class="project-card-title">Foto Produk &amp; Komposisi Retouching (Creative Team)</h3>
+          <p class="project-card-desc">Kurasi foto, komposisi visual produk, manipulasi gambar, dan color grading profesional.</p>
+          
+          <!-- Tech Tags Cloud -->
+          <div class="project-card-tech">
+            <div class="tech-tags-cloud">
+                              <span class="tech-tag-pill">Adobe Photoshop</span>
+                              <span class="tech-tag-pill">Adobe Lightroom</span>
+                              <span class="tech-tag-pill">Color Grading</span>
+                                            <span class="tech-tag-pill tech-tag-more">+1</span>
+                          </div>
+          </div>
+
+          <!-- Card Footer CTA -->
+          <div class="project-card-footer">
+            <span class="footer-cta-text">Lihat Detail Studi Kasus</span>
+            <span class="footer-cta-arrow">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+                <a class="card project-card kat-theme-desain-grafis" href="/portofolio.web/proyek/detail/katalog-visual-mahesa-sublim"
+         data-kat="Desain Grafis" 
+         data-cari="katalog visual &amp; branding apparel (cv mahesa sublim) coreldraw, adobe photoshop, typography, layouting, vector design materi promosi visual, flyer digital, dan identitas katalog produk sublimasi olahraga. desain grafis">
+        
+        <!-- Card Top Visual Cover -->
+        <div class="project-card-cover">
+          <div class="cover-mesh-bg"></div>
+          <div class="cover-watermark-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+  <polyline points="2 17 12 22 22 17"/>
+  <polyline points="2 12 12 17 22 12"/>
+</svg></div>
+          
+          <div class="cover-top-badges">
+            <span class="badge-category">
+              <span class="badge-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+  <polyline points="2 17 12 22 22 17"/>
+  <polyline points="2 12 12 17 22 12"/>
+</svg></span>
+              <span class="badge-text">Desain Grafis</span>
+            </span>
+                      </div>
+
+          <div class="cover-bottom-info">
+            <span class="badge-year">2024</span>
+          </div>
+        </div>
+
+        <!-- Card Body -->
+        <div class="project-card-body">
+          <h3 class="project-card-title">Katalog Visual &amp; Branding Apparel (CV Mahesa Sublim)</h3>
+          <p class="project-card-desc">Materi promosi visual, flyer digital, dan identitas katalog produk sublimasi olahraga.</p>
+          
+          <!-- Tech Tags Cloud -->
+          <div class="project-card-tech">
+            <div class="tech-tags-cloud">
+                              <span class="tech-tag-pill">CorelDRAW</span>
+                              <span class="tech-tag-pill">Adobe Photoshop</span>
+                              <span class="tech-tag-pill">Typography</span>
+                                            <span class="tech-tag-pill tech-tag-more">+2</span>
+                          </div>
+          </div>
+
+          <!-- Card Footer CTA -->
+          <div class="project-card-footer">
+            <span class="footer-cta-text">Lihat Detail Studi Kasus</span>
+            <span class="footer-cta-arrow">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+      </div>
+
+</section>
+</main>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas" title="Kembali ke atas">
+    <span class="back-to-top-arrow">&uarr;</span>
+  </button>
+
+  <!-- Clean Minimalist Footer -->
+  <footer class="pixel-footer">
+    <div class="pixel-footer-inner">
+      <div class="pixel-footer-left">
+        <a class="pixel-brand-logo small" href="/portofolio.web/" title="vectorpix.dev">
+          <div class="pixel-logo-icon mini">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 4L12 21L12 13.2L7.8 4H3Z" fill="url(#vpGradLeftFoot)"/>
+              <path d="M21 4L12 21L12 13.2L16.2 4H21Z" fill="url(#vpGradRightFoot)"/>
+              <rect x="10.5" y="5" width="3" height="3" rx="0.75" fill="#ec4899"/>
+              <defs>
+                <linearGradient id="vpGradLeftFoot" x1="3" y1="4" x2="12" y2="21" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#b674fc"/>
+                  <stop offset="1" stop-color="#ec4899"/>
+                </linearGradient>
+                <linearGradient id="vpGradRightFoot" x1="21" y1="4" x2="12" y2="21" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#ec4899"/>
+                  <stop offset="1" stop-color="#d946ef"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="pixel-brand-title">vectorpix<span class="brand-tld">.dev</span></span>
+        </a>
+        <p class="pixel-footer-sub">Mewujudkan ide menjadi kenyataan digital yang modern, responsif, dan fungsional.</p>
+      </div>
+
+      <div class="pixel-footer-right">
+        <p class="copyright-text">&copy; 2026 <strong>Putri Denta Tama</strong> (vectorpix.dev). Seluruh hak cipta dilindungi.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/portofolio.web/assets/js/app.js?v=1794157024"></script>
+</body>
+</html>
