@@ -25,7 +25,7 @@ abstract class Controller
 
     protected function flash(string $type, string $message): void
     {
-        $_SESSION['flash'] = ['type' => $type, 'message' => $message];
+        unset($_SESSION['flash']);
     }
 
     protected function setOld(array $d): void    { $_SESSION['old'] = $d; }

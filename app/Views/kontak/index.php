@@ -5,13 +5,22 @@ $email  = $profil['email'] ?? 'putri.devcreative@gmail.com';
 $lokasi = $profil['lokasi'] ?? 'Jawa Timur, Indonesia';
 ?>
 <section class="sec page-kontak-sec">
+  <!-- Ambient Background Glow Effect -->
+  <div class="kontak-ambient-glow" aria-hidden="true">
+    <div class="kontak-glow-orb kontak-glow-1"></div>
+    <div class="kontak-glow-orb kontak-glow-2"></div>
+  </div>
+
   <!-- Page Header -->
   <div class="sec-header-ethereal kontak-hero-header">
     <div class="kicker-pill">
-      <span class="kicker-dot"></span>
+      <span class="kicker-pulse-wrap">
+        <span class="kicker-ring"></span>
+        <span class="kicker-dot"></span>
+      </span>
       <span>MARI BERKOLABORASI</span>
     </div>
-    <h1 class="page-main-heading">Hubungi Saya &amp; Mulai Diskusi Proyek</h1>
+    <h1 class="page-main-heading">Hubungi Saya &amp; <span class="gradient-purple-text">Mulai Diskusi Proyek</span></h1>
     <p class="page-main-sub">
       Punya ide proyek, kebutuhan rekayasa perangkat lunak, sistem UI/UX, produksi fotografi, atau videografi sinematik? Saya siap mendengarkan dan mewujudkannya bersama Anda.
     </p>
@@ -19,15 +28,24 @@ $lokasi = $profil['lokasi'] ?? 'Jawa Timur, Indonesia';
     <div class="header-highlights-row">
       <div class="highlight-mini-pill">
         <span class="status-indicator-live"></span>
-        <span><b>Terbuka</b> untuk Proyek Baru &amp; Konsultasi</span>
+        <span><strong>Status:</strong> Terbuka untuk Proyek Baru &amp; Konsultasi</span>
       </div>
       <div class="highlight-mini-pill">
-        <span class="mini-pill-icon">⚡</span>
-        <span>Respon Cepat <b>&le; 24 Jam Kerja</b></span>
+        <span class="mini-pill-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </span>
+        <span>Respon Cepat <strong>&le; 24 Jam Kerja</strong></span>
       </div>
       <div class="highlight-mini-pill">
-        <span class="mini-pill-icon">📍</span>
-        <span><?= h($lokasi) ?></span>
+        <span class="mini-pill-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </span>
+        <span><?= h($lokasi) ?> (WIB / GMT+7)</span>
       </div>
     </div>
   </div>
@@ -37,7 +55,12 @@ $lokasi = $profil['lokasi'] ?? 'Jawa Timur, Indonesia';
     <!-- Left Column: Direct Info & Communication Channels -->
     <div class="contact-info-card">
       <div class="contact-card-header">
-        <span class="card-kicker-badge">💬 SALURAN RESMI</span>
+        <div class="card-kicker-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span>SALURAN RESMI</span>
+        </div>
         <h2 class="contact-card-title">Terhubung Secara Langsung</h2>
         <p class="contact-card-desc">
           Silakan hubungi saya melalui kanal email langsung di bawah ini atau gunakan formulir interaktif di samping.
@@ -46,19 +69,22 @@ $lokasi = $profil['lokasi'] ?? 'Jawa Timur, Indonesia';
 
       <div class="contact-meta-list">
         <!-- Email Item -->
-        <div class="contact-meta-item">
-          <div class="meta-item-icon">
+        <div class="contact-channel-box">
+          <div class="channel-icon-wrap">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="2" y="4" width="20" height="16" rx="3"></rect>
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L1 7"></path>
             </svg>
           </div>
-          <div class="meta-item-details">
-            <span class="meta-item-label">Email Resmi</span>
+          <div class="channel-content">
+            <span class="channel-label">Email Resmi</span>
             <div class="mail-action-group">
               <a class="contact-mail-link" href="mailto:<?= h($email) ?>" id="emailAddressLink"><?= h($email) ?></a>
               <button type="button" class="btn-copy-chip" id="copyEmailBtn" data-email="<?= h($email) ?>" title="Salin alamat email">
-                <span class="copy-icon">📋</span>
+                <svg class="copy-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
                 <span class="copy-label">Salin</span>
               </button>
             </div>
@@ -66,40 +92,62 @@ $lokasi = $profil['lokasi'] ?? 'Jawa Timur, Indonesia';
         </div>
 
         <!-- Location Item -->
-        <div class="contact-meta-item">
-          <div class="meta-item-icon">
+        <div class="contact-channel-box">
+          <div class="channel-icon-wrap">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"></path>
               <circle cx="12" cy="10" r="3"></circle>
             </svg>
           </div>
-          <div class="meta-item-details">
-            <span class="meta-item-label">Lokasi &amp; Domisili</span>
-            <strong class="meta-item-val"><?= h($lokasi) ?> (WIB / GMT+7)</strong>
+          <div class="channel-content">
+            <span class="channel-label">Lokasi &amp; Domisili</span>
+            <span class="channel-val"><?= h($lokasi) ?></span>
+            <span class="channel-subtext">WIB (UTC+7) &bull; Terbuka Remote, Hybrid, &amp; On-site</span>
           </div>
         </div>
 
         <!-- Working Hours Item -->
-        <div class="contact-meta-item">
-          <div class="meta-item-icon">
+        <div class="contact-channel-box">
+          <div class="channel-icon-wrap">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"></circle>
               <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
           </div>
-          <div class="meta-item-details">
-            <span class="meta-item-label">Jam Aktif Diskusi</span>
-            <strong class="meta-item-val">Senin – Sabtu, 08:00 – 19:00 WIB</strong>
+          <div class="channel-content">
+            <span class="channel-label">Jam Aktif Diskusi</span>
+            <span class="channel-val">Senin – Sabtu, 08:00 – 19:00 WIB</span>
+            <span class="channel-subtext">Respon prioritas saat jam kerja aktif</span>
           </div>
         </div>
       </div>
 
+      <!-- Quick Action: WhatsApp Direct Link -->
+      <a href="https://wa.me/6281234567890?text=Halo%20Putri,%20saya%20tertarik%20untuk%20berdiskusi%20tentang%20proyek..." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-direct" title="Hubungi langsung via WhatsApp">
+        <div class="wa-left-wrap">
+          <svg class="wa-icon-svg" viewBox="0 0 24 24">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.05-1.07l-.29-.17-3.12.82.83-3.04-.19-.3a8.19 8.19 0 0 1-1.26-4.47c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.78.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+          </svg>
+          <span>Mulai Chat Cepat via WhatsApp</span>
+        </div>
+        <span class="wa-arrow">&rarr;</span>
+      </a>
+
       <!-- Quick Collaboration Perks Tip Box -->
       <div class="collaboration-perks-box">
-        <div class="perks-icon">💡</div>
+        <div class="perks-icon-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+            <circle cx="12" cy="12" r="5"></circle>
+          </svg>
+        </div>
         <div class="perks-text">
-          <strong>Tips Memulai Kolaborasi</strong>
-          <p>Sertakan ringkasan ide, perkiraan target waktu, dan skala proyek Anda agar kita dapat langsung mendiskusikan langkah teknis terbaik.</p>
+          <strong class="perks-title">Tips Memulai Kolaborasi</strong>
+          <ul class="perks-tips-list">
+            <li>Sertakan ringkasan ide atau kebutuhan proyek Anda.</li>
+            <li>Cantumkan estimasi target waktu penyelesaian (deadline).</li>
+            <li>Sebutkan preferensi teknologi atau referensi gaya visual.</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -116,66 +164,72 @@ $lokasi = $profil['lokasi'] ?? 'Jawa Timur, Indonesia';
         <button type="button" class="quick-topic-chip" data-topic="Software Engineering" data-msg="Halo Putri, saya tertarik untuk mendiskusikan pembuatan aplikasi web/mobile dengan spesifikasi...">
           <span>💻 Software Engineering</span>
         </button>
-        <button type="button" class="quick-topic-chip" data-topic="Desain Grafis" data-msg="Halo Putri, kami membutuhkan perancangan identitas brand visual / UI UX sistem untuk...">
+        <button type="button" class="quick-topic-chip" data-topic="Desain UI/UX" data-msg="Halo Putri, kami membutuhkan perancangan antarmuka sistem / UI UX design untuk...">
           <span>🎨 Desain UI/UX</span>
         </button>
-        <button type="button" class="quick-topic-chip" data-topic="Fotografi" data-msg="Halo Putri, saya ingin mengatur jadwal sesi fotografi studio/komersial/event untuk...">
+        <button type="button" class="quick-topic-chip" data-topic="Fotografi" data-msg="Halo Putri, saya ingin mengatur sesi pemotretan profesional / fotografi komersial untuk...">
           <span>📷 Fotografi</span>
         </button>
-        <button type="button" class="quick-topic-chip" data-topic="Videografi" data-msg="Halo Putri, kami berencana memproduksi video profil sinematik/motion graphics untuk...">
+        <button type="button" class="quick-topic-chip" data-topic="Videografi" data-msg="Halo Putri, kami berencana memproduksi video profil sinematik / motion video untuk...">
           <span>🎬 Videografi</span>
         </button>
       </div>
 
       <!-- Form Submission -->
       <form class="contact-form-element" method="post" action="<?= BASE_URL ?>/kontak/kirim" novalidate id="contactForm">
-        <!-- Anti-spam Honeypot -->
-        <div class="hp" aria-hidden="true">
+        <!-- Anti-spam Honeypot (Guaranteed Invisible) -->
+        <div class="hp" aria-hidden="true" style="display:none !important; position:absolute; left:-9999px; width:0; height:0; opacity:0; pointer-events:none;">
           <label>Website <input name="website" tabindex="-1" autocomplete="off"></label>
         </div>
 
         <!-- Nama Input -->
         <div class="form-group-item">
           <label for="inputNama" class="form-label">
-            Nama Lengkap <span class="req-star">*</span>
+            <span>Nama Lengkap <span class="req-star">*</span></span>
           </label>
           <div class="input-field-wrap <?= isset($errors['nama']) ? 'has-error' : '' ?>">
             <span class="field-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                 <circle cx="12" cy="7" r="4"></circle>
               </svg>
             </span>
-            <input id="inputNama" name="nama" type="text" placeholder="Contoh: Budi Santoso" value="<?= h($old['nama'] ?? '') ?>" class="form-text-input" required>
+            <input id="inputNama" name="nama" type="text" placeholder="Contoh: Budi Santoso" value="<?= h($old['nama'] ?? '') ?>" class="form-text-input" autocomplete="name" required>
           </div>
           <?php if (isset($errors['nama'])): ?>
-            <span class="field-error-msg"><?= h($errors['nama']) ?></span>
+            <span class="field-error-msg">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <?= h($errors['nama']) ?>
+            </span>
           <?php endif; ?>
         </div>
 
         <!-- Email Input -->
         <div class="form-group-item">
           <label for="inputEmail" class="form-label">
-            Alamat Email <span class="req-star">*</span>
+            <span>Alamat Email <span class="req-star">*</span></span>
           </label>
           <div class="input-field-wrap <?= isset($errors['email']) ? 'has-error' : '' ?>">
             <span class="field-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="2" y="4" width="20" height="16" rx="3"></rect>
                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L1 7"></path>
               </svg>
             </span>
-            <input id="inputEmail" type="email" name="email" placeholder="nama@email.com" value="<?= h($old['email'] ?? '') ?>" class="form-text-input" required>
+            <input id="inputEmail" type="email" name="email" placeholder="nama@email.com" value="<?= h($old['email'] ?? '') ?>" class="form-text-input" autocomplete="email" required>
           </div>
           <?php if (isset($errors['email'])): ?>
-            <span class="field-error-msg"><?= h($errors['email']) ?></span>
+            <span class="field-error-msg">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <?= h($errors['email']) ?>
+            </span>
           <?php endif; ?>
         </div>
 
         <!-- Message Input -->
         <div class="form-group-item">
           <label for="isi" class="form-label">
-            Detail Pesan atau Rencana Proyek <span class="req-star">*</span>
+            <span>Detail Pesan atau Rencana Proyek <span class="req-star">*</span></span>
           </label>
           <div class="input-field-wrap textarea-wrap <?= isset($errors['isi']) ? 'has-error' : '' ?>">
             <textarea name="isi" id="isi" rows="5" maxlength="1000" placeholder="Ceritakan gambaran proyek, target waktu, atau ekspektasi yang Anda inginkan..." class="form-textarea-input" required><?= h($old['isi'] ?? '') ?></textarea>
@@ -189,14 +243,17 @@ $lokasi = $profil['lokasi'] ?? 'Jawa Timur, Indonesia';
           </div>
 
           <?php if (isset($errors['isi'])): ?>
-            <span class="field-error-msg"><?= h($errors['isi']) ?></span>
+            <span class="field-error-msg">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <?= h($errors['isi']) ?>
+            </span>
           <?php endif; ?>
         </div>
 
         <!-- Submit Button -->
         <button class="btn-submit-pill" type="submit" id="submitBtn">
-          <span>Kirim Pesan Sekarang</span>
-          <span class="submit-arrow-circle">
+          <span id="submitBtnText">Kirim Pesan Sekarang</span>
+          <span class="submit-arrow-circle" id="submitBtnIcon">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
@@ -206,3 +263,118 @@ $lokasi = $profil['lokasi'] ?? 'Jawa Timur, Indonesia';
     </div>
   </div>
 </section>
+
+<!-- Self-contained Interactive Script for Contact Page -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // 1. Copy Email Feature
+  const copyBtn = document.getElementById('copyEmailBtn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async function () {
+      const email = this.getAttribute('data-email');
+      const copyLabel = this.querySelector('.copy-label');
+      
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(email);
+        } else {
+          const tempInput = document.createElement('textarea');
+          tempInput.value = email;
+          tempInput.style.position = 'fixed';
+          tempInput.style.opacity = '0';
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          document.execCommand('copy');
+          document.body.removeChild(tempInput);
+        }
+
+        // Visual Feedback
+        copyBtn.classList.add('copied');
+        if (copyLabel) copyLabel.textContent = 'Tersalin! ✓';
+
+        // Trigger Toast Feedback if global helper exists
+        if (typeof showToast === 'function') {
+          showToast('Alamat email berhasil disalin ke clipboard!', 'success');
+        }
+
+        setTimeout(() => {
+          copyBtn.classList.remove('copied');
+          if (copyLabel) copyLabel.textContent = 'Salin';
+        }, 2500);
+      } catch (err) {
+        console.error('Failed to copy: ', err);
+      }
+    });
+  }
+
+  // 2. Quick Topic Chips Interaction
+  const topicChips = document.querySelectorAll('.quick-topic-chip');
+  const messageArea = document.getElementById('isi');
+
+  topicChips.forEach(chip => {
+    chip.addEventListener('click', function () {
+      // Toggle active state
+      topicChips.forEach(c => c.classList.remove('active'));
+      this.classList.add('active');
+
+      const templateMsg = this.getAttribute('data-msg');
+      if (messageArea && templateMsg) {
+        // If empty or user hasn't written a lot, set the template directly
+        if (!messageArea.value.trim() || messageArea.value.startsWith('Halo Putri')) {
+          messageArea.value = templateMsg;
+        } else {
+          // Prepend topic context if user already entered notes
+          const topic = this.getAttribute('data-topic');
+          messageArea.value = `[Topik: ${topic}]\n` + messageArea.value;
+        }
+        messageArea.focus();
+        messageArea.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+    });
+  });
+
+  // 3. Dynamic Textarea Character Counter & Progress Bar
+  const textareaEl = document.getElementById('isi');
+  const counterNum = document.getElementById('hitung');
+  const progressBar = document.getElementById('charProgress');
+  const counterText = document.querySelector('.char-count-text');
+
+  function updateCharCount() {
+    if (!textareaEl || !counterNum || !progressBar) return;
+    const len = textareaEl.value.length;
+    counterNum.textContent = len;
+    
+    const pct = Math.min((len / 1000) * 100, 100);
+    progressBar.style.width = pct + '%';
+
+    if (len >= 900) {
+      progressBar.classList.add('warn');
+      if (counterText) counterText.classList.add('warn');
+    } else {
+      progressBar.classList.remove('warn');
+      if (counterText) counterText.classList.remove('warn');
+    }
+  }
+
+  if (textareaEl) {
+    textareaEl.addEventListener('input', updateCharCount);
+    // Initial check on page load (e.g. if old input exists)
+    updateCharCount();
+  }
+
+  // 4. Form Submission Loading State
+  const contactForm = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const submitBtnText = document.getElementById('submitBtnText');
+
+  if (contactForm && submitBtn) {
+    contactForm.addEventListener('submit', function (e) {
+      // Basic check
+      if (contactForm.checkValidity()) {
+        submitBtn.classList.add('is-submitting');
+        if (submitBtnText) submitBtnText.textContent = 'Mengirim Pesan...';
+      }
+    });
+  }
+});
+</script>

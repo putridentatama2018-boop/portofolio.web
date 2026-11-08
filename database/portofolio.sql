@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS portofolio;
-CREATE DATABASE portofolio CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE portofolio;
+-- =========================================================================
+-- Portofolio Database Schema & Seed Data
+-- =========================================================================
 
 -- Profil pemilik portofolio
 CREATE TABLE profil (

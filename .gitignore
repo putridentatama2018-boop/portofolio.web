@@ -1,4 +1,7 @@
 /vendor/
 /storage/logs/*.log
+/salinan_siap_hosting/
+*.zip
 .DS_Store
 Thumbs.db
+

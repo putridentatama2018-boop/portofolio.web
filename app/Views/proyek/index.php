@@ -12,76 +12,33 @@
 
     <div class="header-highlights-row">
       <div class="highlight-mini-pill">
-        <span class="mini-pill-icon">✨</span>
+        <span class="mini-pill-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </span>
         <span><b><?= count($daftarProyek) ?></b> Karya Terkurasi</span>
       </div>
       <div class="highlight-mini-pill">
-        <span class="mini-pill-icon">🎯</span>
+        <span class="mini-pill-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+        </span>
         <span><b>4</b> Bidang Spesialisasi</span>
       </div>
       <div class="highlight-mini-pill">
-        <span class="mini-pill-icon">⚡</span>
+        <span class="mini-pill-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </span>
         <span>Studi Kasus Lengkap</span>
       </div>
     </div>
   </div>
 
-  <!-- Filter & Search Toolbar Card -->
-  <div class="portfolio-controls-card">
-    <div class="tools-top-row">
-      <!-- Category Filter Pills -->
-      <div class="chips-scroll-wrapper">
-        <div class="chips" id="chips">
-          <button class="chip active" data-kat="semua" type="button">
-            <span class="chip-icon">✨</span>
-            <span class="chip-text">Semua Karya</span>
-            <span class="chip-count" id="countAll"><?= count($daftarProyek) ?></span>
-          </button>
-          <?php foreach ($kategori as $k): ?>
-            <?php 
-              $katSlug = getKatSlug($k);
-              $countKat = count(array_filter($daftarProyek, fn($item) => $item['kategori'] === $k));
-            ?>
-            <button class="chip chip-<?= h($katSlug) ?>" data-kat="<?= h($k) ?>" type="button">
-              <span class="chip-icon"><?= getKatIcon($k) ?></span>
-              <span class="chip-text"><?= h($k) ?></span>
-              <span class="chip-count"><?= $countKat ?></span>
-            </button>
-          <?php endforeach; ?>
-        </div>
-      </div>
-
-      <!-- Search Box -->
-      <div class="search-box-wrapper">
-        <div class="search-box">
-          <svg class="search-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input class="search-input" id="cari" type="search" placeholder="Cari nama proyek, teknologi (Laravel, Figma, Flutter)..." aria-label="Cari proyek">
-          <button class="search-clear-btn" id="clearSearch" aria-label="Hapus pencarian" hidden>&times;</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Meta Status Bar -->
-    <div class="tools-meta-bar">
-      <div class="results-counter" id="resultsCount">
-        <span class="counter-dot"></span>
-        <span>Menampilkan <b id="displayedCount"><?= count($daftarProyek) ?></b> dari <?= count($daftarProyek) ?> karya</span>
-      </div>
-      <div class="filter-tip">
-        <span>💡 Klik kartu untuk membaca studi kasus &amp; spesifikasi teknis</span>
-      </div>
-    </div>
-  </div>
 
   <!-- Projects Grid -->
   <div class="projects-grid" id="grid">
     <?php foreach ($daftarProyek as $p): ?>
       <?php 
         $katSlug = getKatSlug($p['kategori']); 
-        $katIcon = getKatIcon($p['kategori']);
+        $katSvg = getKatSvgIcon($p['kategori'], 14);
         $techList = array_map('trim', explode(',', $p['teknologi']));
       ?>
       <a class="card project-card kat-theme-<?= h($katSlug) ?>" href="<?= BASE_URL ?>/proyek/detail?slug=<?= urlencode($p['slug']) ?>"
@@ -91,15 +48,18 @@
         <!-- Card Top Visual Cover -->
         <div class="project-card-cover">
           <div class="cover-mesh-bg"></div>
-          <div class="cover-watermark-icon"><?= $katIcon ?></div>
+          <div class="cover-watermark-icon"><?= $katSvg ?></div>
           
           <div class="cover-top-badges">
             <span class="badge-category">
-              <span class="badge-icon"><?= $katIcon ?></span>
+              <span class="badge-icon"><?= $katSvg ?></span>
               <span class="badge-text"><?= h($p['kategori']) ?></span>
             </span>
             <?php if (!empty($p['unggulan'])): ?>
-              <span class="badge-featured">⭐ Unggulan</span>
+              <span class="badge-featured">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>Unggulan</span>
+              </span>
             <?php endif; ?>
           </div>
 
@@ -139,15 +99,4 @@
     <?php endforeach; ?>
   </div>
 
-  <!-- Empty State Box -->
-  <div class="empty-state-box" id="kosong" hidden>
-    <div class="empty-state-card">
-      <div class="empty-icon-circle">🔍</div>
-      <h3 class="empty-title">Tidak Ada Proyek yang Cocok</h3>
-      <p class="empty-desc">Tidak ditemukan hasil untuk kata kunci atau kategori yang Anda pilih. Coba gunakan kata kunci lain.</p>
-      <button class="btn-pill-dark" id="resetFilterBtn" type="button">
-        <span>Reset Semua Filter</span>
-      </button>
-    </div>
-  </div>
 </section>

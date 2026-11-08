@@ -11,6 +11,11 @@ class Router
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         if (BASE_URL !== '' && str_starts_with($uri, BASE_URL)) {
             $uri = substr($uri, strlen(BASE_URL));
+        } else {
+            $baseWithoutPublic = preg_replace('#/public$#', '', BASE_URL);
+            if ($baseWithoutPublic !== '' && str_starts_with($uri, $baseWithoutPublic)) {
+                $uri = substr($uri, strlen($baseWithoutPublic));
+            }
         }
         $uri = '/' . ltrim($uri, '/');
         if ($uri !== '/') {

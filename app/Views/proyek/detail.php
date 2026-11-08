@@ -1,133 +1,355 @@
 <?php
 $katSlug = getKatSlug($proyek['kategori']);
-$katIcon = getKatIcon($proyek['kategori']);
+$katSvg = getKatSvgIcon($proyek['kategori'], 16);
 $techItems = array_map('trim', explode(',', $proyek['teknologi']));
+$previewImage = getProyekImage($proyek['slug']);
 ?>
 <article class="sec detail-article">
-  <!-- Top Navigation & Actions Bar -->
+  <!-- Ambient Backdrop Glow Effect -->
+  <div class="detail-ambient-glow" aria-hidden="true">
+    <div class="detail-orb-1"></div>
+    <div class="detail-orb-2"></div>
+  </div>
+
+  <!-- Top Navigation & Action Bar -->
   <div class="detail-nav-bar">
-    <a class="back-link-btn" href="<?= BASE_URL ?>/proyek">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-      <span>Kembali ke Katalog Karya</span>
+    <a class="back-link-btn" href="<?= BASE_URL ?>/proyek" title="Kembali ke galeri karya">
+      <svg class="back-arrow-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      <span>Kembali ke Katalog Proyek</span>
     </a>
 
     <div class="detail-actions-right">
-      <button class="action-btn-pill" id="shareProjectBtn" title="Salin tautan proyek ini" type="button" onclick="navigator.clipboard.writeText(window.location.href); alert('Tautan proyek berhasil disalin ke clipboard!');">
-        <span class="action-icon">🔗</span>
-        <span class="action-text">Bagikan Tautan</span>
-      </button>
-      <span class="detail-kategori-badge kat-theme-<?= h($katSlug) ?>">
-        <?= $katIcon ?> <?= h($proyek['kategori']) ?>
+      <span class="detail-kategori-badge">
+        <span class="kat-badge-svg"><?= $katSvg ?></span>
+        <span><?= h($proyek['kategori']) ?></span>
       </span>
+
+      <button class="action-btn-pill" id="shareProjectBtn" title="Salin tautan proyek ini" type="button">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+        <span class="share-btn-text">Bagikan Tautan</span>
+      </button>
     </div>
   </div>
 
-  <!-- Header -->
+  <!-- Project Hero Header Card -->
   <header class="detail-header-card">
-    <div class="detail-meta-tags">
-      <span class="meta-pill-year">📅 Tahun Pengerjaan: <?= h($proyek['tahun']) ?></span>
-      <?php if (!empty($proyek['unggulan'])): ?>
-        <span class="meta-pill-featured">⭐ Featured Case Study</span>
-      <?php endif; ?>
-      <span class="meta-pill-category"><?= $katIcon ?> <?= h($proyek['kategori']) ?></span>
+    <div class="detail-kicker-pill">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+      </svg>
+      <span>STUDI KASUS PRODUKSI &bull; VERIFIKASI SELESAI</span>
     </div>
     
-    <h1 class="detail-headline"><?= h($proyek['judul']) ?></h1>
-    <p class="detail-summary-lead"><?= h($proyek['ringkasan']) ?></p>
+    <h1 class="detail-main-title"><?= h($proyek['judul']) ?></h1>
+    <p class="detail-main-lead"><?= h($proyek['ringkasan']) ?></p>
+
+    <!-- Meta Badges Strip -->
+    <div class="detail-meta-badges-row">
+      <div class="meta-badge-chip">
+        <span class="meta-chip-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+        </span>
+        <span>Tahun Rilis: <strong><?= h($proyek['tahun']) ?></strong></span>
+      </div>
+
+      <div class="meta-badge-chip">
+        <span class="meta-chip-icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        </span>
+        <span>Instrumen: <strong><?= count($techItems) ?> Alat &amp; Stack</strong></span>
+      </div>
+
+      <?php if (!empty($proyek['unggulan'])): ?>
+        <div class="meta-badge-chip">
+          <span class="meta-chip-icon" style="color: #fbbf24;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </span>
+          <span style="color: #fde047;"><strong>Karya Unggulan</strong></span>
+        </div>
+      <?php endif; ?>
+
+      <div class="meta-badge-chip">
+        <span class="status-live-dot"></span>
+        <span>Status: <strong>Produksi &amp; Terverifikasi</strong></span>
+      </div>
+    </div>
   </header>
 
-  <!-- Showcase Hero Banner -->
-  <div class="detail-banner-stage kat-theme-<?= h($katSlug) ?>">
-    <div class="detail-banner-backdrop" aria-hidden="true"></div>
-    <div class="detail-banner-content">
-      <div class="banner-icon-bubble"><?= $katIcon ?></div>
-      <div class="banner-text-info">
-        <span class="banner-kicker"><?= h($proyek['kategori']) ?> • Studi Kasus Produksi</span>
-        <h2 class="banner-title"><?= h($proyek['judul']) ?></h2>
-        <div class="banner-pills-row">
-          <span class="b-pill">Standard Produksi</span>
-          <span class="b-pill">Terkurasi &amp; Teruji</span>
-          <span class="b-pill"><?= count($techItems) ?> Alat / Teknologi</span>
-        </div>
+  <!-- Featured Visual Showcase Mockup Frame -->
+  <div class="detail-showcase-frame">
+    <div class="showcase-window-bar">
+      <div class="window-dots">
+        <span class="window-dot dot-red"></span>
+        <span class="window-dot dot-yellow"></span>
+        <span class="window-dot dot-green"></span>
       </div>
+
+      <div class="window-address-bar">
+        <svg class="ssl-lock-svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+        <span>vectorpix.dev/case-study/<?= h($proyek['slug']) ?></span>
+      </div>
+
+      <div class="window-live-tag">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>Live System Interface</span>
+      </div>
+    </div>
+
+    <div class="showcase-image-viewport">
+      <img src="<?= BASE_URL ?>/assets/images/<?= h($previewImage) ?>" alt="<?= h($proyek['judul']) ?> Showcase" class="showcase-img" loading="lazy">
     </div>
   </div>
 
-  <!-- Main Body Grid -->
+  <!-- Two-Column Case Study Layout -->
   <div class="detail-body-layout">
+    <!-- Left Column: The Architecture & Implementation Narrative -->
     <div class="detail-main-story">
-      <div class="detail-content-card">
-        <h3 class="section-subheading">
-          <span class="subheading-icon">📖</span> Uraian &amp; Arsitektur Proyek
-        </h3>
-        <div class="detail-story-text">
+      <!-- Card 1: Overview & Arsitektur -->
+      <section class="detail-content-glass-card">
+        <div class="card-section-title-row">
+          <div class="title-icon-bubble">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+          </div>
+          <h2 class="card-section-title">Uraian &amp; Arsitektur Proyek</h2>
+        </div>
+
+        <div class="detail-narrative-text">
           <?= nl2br(h($proyek['deskripsi'])) ?>
         </div>
-      </div>
 
-      <div class="detail-pillars-highlight-box">
-        <h3 class="section-subheading">
-          <span class="subheading-icon">🎯</span> Nilai Tambah &amp; Pendekatan Metodologi
-        </h3>
-        <div class="methodology-grid">
-          <div class="meth-card">
-            <div class="meth-icon">🛡️</div>
-            <h4>Standar &amp; Best Practices</h4>
-            <p>Didesain dan dieksekusi dengan kepatuhan pada standar industri <?= h($proyek['kategori']) ?>, memastikan keandalan, skalabilitas, dan kemudahan pemeliharaan.</p>
+        <!-- System Architecture Highlights -->
+        <div class="arch-highlights-grid">
+          <div class="arch-pill-box">
+            <span class="arch-icon-mini">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </span>
+            <span class="arch-pill-label">Arsitektur Modular MVC</span>
           </div>
-          <div class="meth-card">
-            <div class="meth-icon">💎</div>
-            <h4>Kualitas Visual &amp; Performa</h4>
-            <p>Perhatian cermat pada efisiensi performa, kebersihan alur pengguna, keakuratan warna, dan dampak visual yang kuat.</p>
+
+          <div class="arch-pill-box">
+            <span class="arch-icon-mini">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+            </span>
+            <span class="arch-pill-label">Sinkronisasi Real-Time</span>
+          </div>
+
+          <div class="arch-pill-box">
+            <span class="arch-icon-mini">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+            </span>
+            <span class="arch-pill-label">Efisiensi &amp; Skalabilitas</span>
           </div>
         </div>
-      </div>
+      </section>
+
+      <!-- Card 2: Metodologi & Nilai Tambah -->
+      <section class="detail-content-glass-card">
+        <div class="card-section-title-row">
+          <div class="title-icon-bubble">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+            </svg>
+          </div>
+          <h2 class="card-section-title">Nilai Tambah &amp; Pendekatan Metodologi</h2>
+        </div>
+
+        <div class="methodology-cards-grid">
+          <!-- Standar Card -->
+          <div class="meth-feature-card">
+            <div class="meth-icon-badge">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3 class="meth-card-title">Standar &amp; Best Practices</h3>
+            <p class="meth-card-desc">
+              Didesain dan dieksekusi dengan kepatuhan ketat pada standar industri <?= h($proyek['kategori']) ?>, memastikan keandalan logika, skalabilitas, dan kemudahan pemeliharaan kode jangka panjang.
+            </p>
+          </div>
+
+          <!-- Kualitas Card -->
+          <div class="meth-feature-card">
+            <div class="meth-icon-badge">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <h3 class="meth-card-title">Kualitas Visual &amp; Performa</h3>
+            <p class="meth-card-desc">
+              Perhatian mendalam pada kecepatan eksekusi algoritma, latensi rendah, kebersihan alur pengalaman pengguna, serta keakuratan estetika visual tingkat tinggi.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
 
-    <!-- Sticky Sidebar -->
+    <!-- Right Column: Sticky Sidebar with Specifications & CTA -->
     <aside class="detail-sidebar-col">
-      <div class="sidebar-sticky-box">
-        <h3 class="sidebar-box-title">Spesifikasi &amp; Instrumen</h3>
-
-        <div class="sidebar-section">
-          <span class="sidebar-label">Stack &amp; Software:</span>
-          <div class="sidebar-tech-badges">
-            <?php foreach ($techItems as $t): ?>
-              <span class="sidebar-tech-tag">
-                <span class="bullet-dot"></span>
-                <span><?= h($t) ?></span>
-              </span>
-            <?php endforeach; ?>
+      <div class="detail-sidebar-box">
+        <div class="sidebar-box-header">
+          <div class="sidebar-icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" y1="21" x2="4" y2="14"></line>
+              <line x1="4" y1="10" x2="4" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12" y2="3"></line>
+              <line x1="20" y1="21" x2="20" y2="16"></line>
+              <line x1="20" y1="12" x2="20" y2="3"></line>
+              <line x1="1" y1="14" x2="7" y2="14"></line>
+              <line x1="9" y1="8" x2="15" y2="8"></line>
+              <line x1="17" y1="16" x2="23" y2="16"></line>
+            </svg>
           </div>
+          <h3 class="sidebar-heading">Spesifikasi Teknis</h3>
         </div>
 
-        <div class="sidebar-divider"></div>
+        <!-- Tech Stack Cloud -->
+        <span class="sidebar-section-label">Alat &amp; Stack Teknologi:</span>
+        <div class="sidebar-tech-cloud">
+          <?php foreach ($techItems as $t): ?>
+            <span class="sidebar-tech-chip">
+              <span class="tech-chip-dot"></span>
+              <span><?= h($t) ?></span>
+            </span>
+          <?php endforeach; ?>
+        </div>
 
-        <div class="sidebar-meta-list">
-          <div class="meta-list-row">
+        <div class="sidebar-divider-line"></div>
+
+        <!-- Meta Table -->
+        <div class="sidebar-meta-table">
+          <div class="sidebar-meta-row">
             <span class="meta-row-label">Kategori Utama</span>
-            <strong class="meta-row-val"><?= h($proyek['kategori']) ?></strong>
+            <span class="meta-row-val">
+              <span style="color: var(--accent-pink); display: inline-flex;"><?= $katSvg ?></span>
+              <span><?= h($proyek['kategori']) ?></span>
+            </span>
           </div>
-          <div class="meta-list-row">
+
+          <div class="sidebar-meta-row">
             <span class="meta-row-label">Tahun Pembuatan</span>
-            <strong class="meta-row-val"><?= h($proyek['tahun']) ?></strong>
+            <span class="meta-row-val"><?= h($proyek['tahun']) ?></span>
           </div>
-          <div class="meta-list-row">
+
+          <div class="sidebar-meta-row">
             <span class="meta-row-label">Status Proyek</span>
-            <strong class="meta-row-val status-complete">🟢 Selesai / Terpublikasi</strong>
+            <span class="meta-row-val status-live-chip">
+              <span class="status-live-dot"></span>
+              <span>Selesai &amp; Teruji</span>
+            </span>
+          </div>
+
+          <div class="sidebar-meta-row">
+            <span class="meta-row-label">Cakupan Dokumen</span>
+            <span class="meta-row-val">Studi Kasus Lengkap</span>
           </div>
         </div>
 
-        <div class="sidebar-action-wrap">
-          <a href="<?= BASE_URL ?>/kontak" class="btn-pill-dark btn-full-width">
+        <div class="sidebar-divider-line"></div>
+
+        <!-- Action Buttons -->
+        <div class="sidebar-action-group">
+          <a href="<?= BASE_URL ?>/kontak" class="btn-detail-cta">
             <span>Diskusikan Proyek Serupa</span>
-            <span class="pill-arrow">&nearr;</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
           </a>
-          <a href="<?= BASE_URL ?>/proyek" class="btn-pill-glass btn-full-width">
-            <span>Lihat Karya Lainnya</span>
+
+          <a href="<?= BASE_URL ?>/proyek" class="btn-detail-secondary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Katalog Proyek Lainnya</span>
+          </a>
+
+          <a href="https://wa.me/6281234567890?text=Halo%20Putri,%20saya%20tertarik%20dengan%20studi%20kasus%20<?= urlencode($proyek['judul']) ?>..." target="_blank" rel="noopener noreferrer" class="btn-detail-whatsapp" title="Tanya langsung di WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.24-8.24 8.24-1.42 0-2.82-.37-4.05-1.07l-.29-.17-3.12.82.83-3.04-.19-.3a8.19 8.19 0 0 1-1.26-4.47c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.78.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+            </svg>
+            <span>Tanya Langsung via WhatsApp</span>
           </a>
         </div>
       </div>
     </aside>
   </div>
 </article>
+
+<!-- Interactive Script for Share Button -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const shareBtn = document.getElementById('shareProjectBtn');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', async function () {
+      const shareText = this.querySelector('.share-btn-text');
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(window.location.href);
+        } else {
+          const temp = document.createElement('textarea');
+          temp.value = window.location.href;
+          temp.style.position = 'fixed';
+          temp.style.opacity = '0';
+          document.body.appendChild(temp);
+          temp.select();
+          document.execCommand('copy');
+          document.body.removeChild(temp);
+        }
+
+        shareBtn.classList.add('copied');
+        if (shareText) shareText.textContent = 'Tersalin! ✓';
+
+        if (typeof showToast === 'function') {
+          showToast('Tautan studi kasus berhasil disalin ke clipboard!', 'success');
+        }
+
+        setTimeout(() => {
+          shareBtn.classList.remove('copied');
+          if (shareText) shareText.textContent = 'Bagikan Tautan';
+        }, 2500);
+      } catch (err) {
+        console.error('Copy failed: ', err);
+      }
+    });
+  }
+});
+</script>

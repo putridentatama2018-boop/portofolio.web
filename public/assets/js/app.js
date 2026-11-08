@@ -1,109 +1,74 @@
 /**
- * Putri Portfolio - High-Performance Interactive Script
- * PixelCraft Redesign — Clean White + Purple Accent
- * Features: Scroll Reveal IntersectionObserver, Capsule Nav Active State,
- * Smooth Scroll, Testimonial Carousel, Light/Dark Mode Switcher,
- * Form Handlers, Toast Notifications, Back-to-Top.
+ * PixelCraft Portfolio - Clean & Lightweight Interactive Script
  */
 
 (function () {
   'use strict';
 
-  // Helper query selector shortcuts
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 
-  // ==========================================================================
-  // 1. Toast Notification Helper
-  // ==========================================================================
-  function showToast(message, type = 'success') {
-    let container = $('#toastContainer');
-    if (!container) {
-      container = document.createElement('div');
-      container.id = 'toastContainer';
-      container.className = 'toast-container';
-      document.body.appendChild(container);
-    }
+  // 1. Toast & Flash notifications disabled as requested
+  function showToast() { /* Notifications disabled */ }
+  window.showToast = showToast;
 
-    const toast = document.createElement('div');
-    toast.className = `toast toast-${type}`;
-    toast.setAttribute('role', 'status');
-    const icon = type === 'success' ? '✨' : '⚠️';
-    toast.innerHTML = `<span class="toast-icon">${icon}</span><span class="toast-message">${message}</span>`;
-    
-    container.appendChild(toast);
-
-    setTimeout(() => {
-      toast.style.opacity = '0';
-      toast.style.transform = 'translateY(-10px)';
-      toast.style.transition = 'all 0.3s ease';
-      setTimeout(() => toast.remove(), 350);
-    }, 4500);
-  }
-
-  // Auto-hide PHP flash toast if present
-  const initialToast = $('#toast');
-  if (initialToast) {
-    setTimeout(() => {
-      initialToast.style.opacity = '0';
-      initialToast.style.transform = 'translateY(-10px)';
-      initialToast.style.transition = 'all 0.3s ease';
-      setTimeout(() => initialToast.remove(), 350);
-    }, 5000);
-  }
-
-  // ==========================================================================
-  // 2. Theme Switching (Default: Light, with Dark Mode Option)
-  // ==========================================================================
-  const themeBtn = $('#themeBtn');
-  const themeIcon = $('#themeIcon');
-
-  function updateThemeUI(t) {
-    document.documentElement.dataset.theme = t;
-    if (themeIcon) {
-      themeIcon.textContent = t === 'dark' ? '🌙' : '☀️';
-    }
-  }
-
-  // Default theme is light, adhering to the reference image
-  const currentSavedTheme = localStorage.getItem('tema') || 'light';
-  updateThemeUI(currentSavedTheme);
-
-  if (themeBtn) {
-    themeBtn.addEventListener('click', () => {
-      const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-      updateThemeUI(nextTheme);
-      try {
-        localStorage.setItem('tema', nextTheme);
-      } catch (e) {}
-    });
-  }
-
-  // ==========================================================================
-  // 3. Mobile Navigation Menu Toggle
-  // ==========================================================================
+  // 2. Mobile Menu Toggle
   const navToggle = $('#navToggle');
   const navLinks = $('#navLinks');
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', isOpen);
+      const isBlock = navLinks.style.display === 'flex';
+      navLinks.style.display = isBlock ? 'none' : 'flex';
+      navLinks.style.flexDirection = 'column';
+      navLinks.style.position = 'absolute';
+      navLinks.style.top = '100%';
+      navLinks.style.left = '0';
+      navLinks.style.width = '100%';
+      navLinks.style.background = 'var(--bg-card)';
+      navLinks.style.backdropFilter = 'blur(20px)';
+      navLinks.style.borderRadius = '20px';
+      navLinks.style.padding = '1.25rem';
+      navLinks.style.marginTop = '0.5rem';
+      navLinks.style.border = '1px solid var(--border-glass)';
+      navLinks.style.boxShadow = 'var(--shadow-card)';
     });
 
     $$('#navLinks a').forEach(a => {
       a.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
+        if (window.innerWidth <= 768) {
+          navLinks.style.display = 'none';
+        }
       });
     });
   }
 
-  // ==========================================================================
-  // 4. Scroll Tracking: Capsule Nav Active State, Progress Bar & Back to Top
-  // ==========================================================================
+  // 2b. Theme Switcher (Light Soft Lilac <-> Dark Cyber Violet)
+  const themeBtn = $('#themeBtn');
+  const themeBtnIcon = $('#themeBtnIcon');
+  if (themeBtn) {
+    const updateThemeIcon = (theme) => {
+      if (themeBtnIcon) {
+        themeBtnIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+      }
+      themeBtn.setAttribute('title', theme === 'dark' ? 'Beralih ke mode terang' : 'Beralih ke mode gelap');
+    };
+
+    const currentTheme = document.documentElement.dataset.theme || 'light';
+    updateThemeIcon(currentTheme);
+
+    themeBtn.addEventListener('click', () => {
+      const activeTheme = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+      const nextTheme = activeTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = nextTheme;
+      localStorage.setItem('vp_theme', nextTheme);
+      updateThemeIcon(nextTheme);
+    });
+  }
+
+  // 3. Scroll Tracking: Nav Active State, Progress Bar & Back to Top
   const scrollProgressBar = $('#scrollProgress');
   const backToTopBtn = $('#backToTop');
-  const capsuleLinks = $$('.capsule-link');
+  const navItems = $$('.pixel-nav-item');
   const sections = $$('section[id]');
 
   function handleScroll() {
@@ -111,12 +76,10 @@
     const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) : 0;
 
-    // 1. Scroll Progress Bar
     if (scrollProgressBar) {
       scrollProgressBar.style.width = `${scrollPercent * 100}%`;
     }
 
-    // 2. Back to Top Button
     if (backToTopBtn) {
       if (scrollTop > 350) {
         backToTopBtn.classList.add('visible');
@@ -125,7 +88,6 @@
       }
     }
 
-    // 3. Capsule Nav Active Link Highlight
     let currentSectionId = '';
     const scrollPosition = scrollTop + 160;
 
@@ -138,10 +100,10 @@
     });
 
     if (currentSectionId) {
-      capsuleLinks.forEach(link => {
+      navItems.forEach(link => {
         const href = link.getAttribute('href');
         if (href && href.includes('#' + currentSectionId)) {
-          capsuleLinks.forEach(l => l.classList.remove('active'));
+          navItems.forEach(l => l.classList.remove('active'));
           link.classList.add('active');
         }
       });
@@ -157,7 +119,7 @@
     });
   }
 
-  // Smooth scroll for internal hash links
+  // Smooth scroll
   $$('a[href*="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
@@ -167,24 +129,33 @@
         const targetEl = document.getElementById(targetId);
         if (targetEl) {
           e.preventDefault();
-          const targetOffset = targetEl.offsetTop - 85;
+          const targetOffset = targetEl.offsetTop - 75;
           window.scrollTo({ top: targetOffset, behavior: 'smooth' });
         }
       }
     });
   });
 
+  // 4. Project Carousel Navigation Buttons
+  const prevProjBtn = $('#prevProj');
+  const nextProjBtn = $('#nextProj');
+  const projectsGrid = $('.pixel-projects-grid');
 
-  // ==========================================================================
-  // 6. Filter Kategori & Search Proyek (Catalog Page)
-  // ==========================================================================
+  if (prevProjBtn && nextProjBtn && projectsGrid) {
+    prevProjBtn.addEventListener('click', () => {
+      projectsGrid.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+    nextProjBtn.addEventListener('click', () => {
+      projectsGrid.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+  }
+
+  // 5. Catalog Search & Filter (/proyek)
   const chips = $$('.chip');
   const cards = $$('.project-card, .card[data-kat]');
   const searchInput = $('#cari');
-  const clearSearchBtn = $('#clearSearch');
   const emptyState = $('#kosong');
   const displayedCount = $('#displayedCount');
-  const resetFilterBtn = $('#resetFilterBtn');
 
   let currentCategory = 'semua';
 
@@ -202,22 +173,11 @@
       const isMatch = matchCategory && matchSearch;
       card.hidden = !isMatch;
 
-      if (isMatch) {
-        visibleCount++;
-      }
+      if (isMatch) visibleCount++;
     });
 
-    if (displayedCount) {
-      displayedCount.textContent = visibleCount;
-    }
-
-    if (emptyState) {
-      emptyState.hidden = visibleCount > 0;
-    }
-
-    if (clearSearchBtn && searchInput) {
-      clearSearchBtn.hidden = searchInput.value.length === 0;
-    }
+    if (displayedCount) displayedCount.textContent = visibleCount;
+    if (emptyState) emptyState.hidden = visibleCount > 0;
   }
 
   chips.forEach(chip => {
@@ -231,109 +191,6 @@
 
   if (searchInput) {
     searchInput.addEventListener('input', applyFilter);
-  }
-
-  if (clearSearchBtn && searchInput) {
-    clearSearchBtn.addEventListener('click', () => {
-      searchInput.value = '';
-      applyFilter();
-      searchInput.focus();
-    });
-  }
-
-  if (resetFilterBtn) {
-    resetFilterBtn.addEventListener('click', () => {
-      if (searchInput) searchInput.value = '';
-      chips.forEach(c => c.classList.remove('active'));
-      const allChip = $('.chip[data-kat="semua"]');
-      if (allChip) allChip.classList.add('active');
-      currentCategory = 'semua';
-      applyFilter();
-    });
-  }
-
-  // ==========================================================================
-  // 7. Contact Form Live Character Counter & Validation & Quick Topics
-  // ==========================================================================
-  const messageTextarea = $('#isi') || $('#pesan');
-  const charCounter = $('#hitung');
-  const charProgress = $('#charProgress');
-
-  if (messageTextarea) {
-    function updateCharCount() {
-      const length = messageTextarea.value.length;
-      if (charCounter) charCounter.textContent = length;
-      if (charProgress) {
-        const percent = Math.min((length / 1000) * 100, 100);
-        charProgress.style.width = `${percent}%`;
-      }
-    }
-
-    messageTextarea.addEventListener('input', updateCharCount);
-    updateCharCount();
-
-    // Quick Topic Chips
-    $$('.quick-topic-chip').forEach(btn => {
-      btn.addEventListener('click', () => {
-        $$('.quick-topic-chip').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const defaultMsg = btn.dataset.msg || '';
-        if (defaultMsg) {
-          messageTextarea.value = defaultMsg;
-          updateCharCount();
-          messageTextarea.focus();
-        }
-      });
-    });
-  }
-
-  // Copy Email Button
-  const copyEmailBtn = $('#copyEmailBtn');
-  if (copyEmailBtn) {
-    copyEmailBtn.addEventListener('click', () => {
-      const emailToCopy = copyEmailBtn.dataset.email || 'putri.devcreative@gmail.com';
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(emailToCopy).then(() => {
-          const originalText = copyEmailBtn.innerHTML;
-          copyEmailBtn.innerHTML = '<span>✅ Tersalin!</span>';
-          showToast('Alamat email berhasil disalin ke clipboard!', 'success');
-          setTimeout(() => {
-            copyEmailBtn.innerHTML = originalText;
-          }, 2500);
-        }).catch(() => {
-          showToast('Gagal menyalin email.', 'error');
-        });
-      }
-    });
-  }
-
-  // ==========================================================================
-  // 8. Scroll Reveal — IntersectionObserver for card animations
-  // ==========================================================================
-  const revealTargets = $$(
-    '.service-frosted-card, .work-showcase-card, .testimonial-frosted-card, .process-step-card, .tool-tile-item'
-  );
-
-  if ('IntersectionObserver' in window && revealTargets.length > 0) {
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.08,
-        rootMargin: '0px 0px -40px 0px',
-      }
-    );
-
-    revealTargets.forEach(el => revealObserver.observe(el));
-  } else {
-    // Fallback: reveal all immediately
-    revealTargets.forEach(el => el.classList.add('revealed'));
   }
 
 })();
