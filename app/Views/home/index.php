@@ -285,7 +285,7 @@ $totalProyek   = $totalProyek ?? 20;
 
       <div class="skill-glass-card">
         <div class="skill-icon-wrap coreldraw-sq">
-          <span class="badge-letter" style="color: #10b981; font-weight: 900; letter-spacing: -1px; font-size: 1.1rem;">CD</span>
+          <img src="<?= BASE_URL ?>/assets/images/corel.jpeg" alt="CorelDraw" class="skill-icon-img">
         </div>
         <div class="skill-details-wrap">
           <div class="skill-label-row">
@@ -315,15 +315,12 @@ $totalProyek   = $totalProyek ?? 20;
 
 
       <div class="skill-glass-card">
-        <div class="skill-icon-wrap phpmyadmin-sq">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2L3 17H21L12 2Z" fill="#F39C12"/>
-            <path d="M12 7L6 17H18L12 7Z" fill="#3498DB"/>
-          </svg>
+        <div class="skill-icon-wrap xampp-sq">
+          <img src="<?= BASE_URL ?>/assets/images/xampp.jpeg" alt="XAMPP" class="skill-icon-img">
         </div>
         <div class="skill-details-wrap">
           <div class="skill-label-row">
-            <span class="skill-name">phpMyAdmin</span>
+            <span class="skill-name">XAMPP</span>
             <span class="skill-pct">85%</span>
           </div>
           <div class="skill-progress-track">
@@ -354,10 +351,7 @@ $totalProyek   = $totalProyek ?? 20;
       <!-- 8. CapCut (87%) -->
       <div class="skill-glass-card">
         <div class="skill-icon-wrap capcut-sq">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 6h6l4 12h6"/>
-            <path d="M20 6h-6L10 18H4"/>
-          </svg>
+          <img src="<?= BASE_URL ?>/assets/images/capcut.jpeg" alt="CapCut" class="skill-icon-img">
         </div>
         <div class="skill-details-wrap">
           <div class="skill-label-row">
