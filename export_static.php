@@ -110,3 +110,4 @@ file_put_contents(__DIR__ . '/.nojekyll', '');
 file_put_contents(__DIR__ . '/docs/.nojekyll', '');
 
 echo "SELESAI! Seluruh file static GitHub Pages berhasil dibuat.\n";
+

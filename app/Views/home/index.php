@@ -99,22 +99,6 @@ $totalProyek   = $totalProyek ?? 20;
           Saya adalah seorang frontend developer yang berfokus membangun website yang indah dan fungsional. Senang memecahkan masalah, mempelajari teknologi baru, serta menciptakan pengalaman pengguna yang mulus dan berdampak nyata.
         </p>
 
-        <!-- 3 Stat Capsules -->
-        <div class="pixel-stats-row">
-          <div class="pixel-stat-capsule">
-            <strong class="stat-number">2+</strong>
-            <span class="stat-label">Tahun Pengalaman</span>
-          </div>
-          <div class="pixel-stat-capsule">
-            <strong class="stat-number">20+</strong>
-            <span class="stat-label">Proyek Selesai</span>
-          </div>
-          <div class="pixel-stat-capsule">
-            <strong class="stat-number">100%</strong>
-            <span class="stat-label">Dedikasi Kerja</span>
-          </div>
-        </div>
-
         <div class="about-action-wrap">
           <a href="<?= BASE_URL ?>/kontak" class="btn-gradient-cyan-purple">
             <span>Mulai Diskusi</span>
